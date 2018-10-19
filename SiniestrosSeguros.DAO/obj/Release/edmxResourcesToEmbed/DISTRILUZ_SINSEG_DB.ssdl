@@ -1,0 +1,491 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SegurosDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2008" Alias="Self" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <Function Name="SP_D_ArchivoValorDeclaradoPorId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdArchivo" Type="int" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_D_ValorDeclaradoDetalleDisgregado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclaradoDetalleDisgregado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_D_ValorDeclaradoDetallePorId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclaradoDetalle" Type="int" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_I_ArchivoValorDeclarado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclarado" Type="int" Mode="In" />
+    <Parameter Name="IdArchivo" Type="int" Mode="InOut" />
+    <Parameter Name="NombreOrigen" Type="varchar" Mode="In" />
+    <Parameter Name="NombreAsignado" Type="varchar" Mode="In" />
+    <Parameter Name="Ruta" Type="varchar" Mode="In" />
+    <Parameter Name="Formato" Type="varchar" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_I_Constante" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPadre" Type="smallint" Mode="In" />
+    <Parameter Name="Constante" Type="varchar" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoAgrupador" Type="char" Mode="In" />
+    <Parameter Name="Orden" Type="smallint" Mode="In" />
+    <Parameter Name="Tag" Type="varchar" Mode="In" />
+    <Parameter Name="IdEstado" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="SP_I_DivisionPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTipoPoliza" Type="smallint" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="Abreviatura" Type="varchar" Mode="In" />
+    <Parameter Name="AplicaProveedor" Type="bit" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_I_Persona" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPersona" Type="int" Mode="InOut" />
+    <Parameter Name="Nombres" Type="varchar" Mode="In" />
+    <Parameter Name="ApellidoPaterno" Type="varchar" Mode="In" />
+    <Parameter Name="ApellidoMaterno" Type="varchar" Mode="In" />
+    <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+    <Parameter Name="IdTipoIdentidad" Type="smallint" Mode="In" />
+    <Parameter Name="NroIdentidad" Type="varchar" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="sp_i_personacomplemento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idPersona" Type="int" Mode="In" />
+    <Parameter Name="sexo" Type="int" Mode="In" />
+    <Parameter Name="idGradoInstruccion" Type="int" Mode="In" />
+    <Parameter Name="FechaNacimiento" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_I_TipoValorDeclarado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTipoValorDeclarado" Type="smallint" Mode="InOut" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="AfectaImporte" Type="smallint" Mode="In" />
+    <Parameter Name="AfectaCantidad" Type="smallint" Mode="In" />
+    <Parameter Name="PermiteCargaDetalle" Type="smallint" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_I_Trabajador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTrabajador" Type="int" Mode="InOut" />
+    <Parameter Name="IdPersona" Type="int" Mode="In" />
+    <Parameter Name="IdArea" Type="smallint" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="smallint" Mode="In" />
+    <Parameter Name="IdUnidadNegocio" Type="smallint" Mode="In" />
+    <Parameter Name="IdCentroServicio" Type="smallint" Mode="In" />
+    <Parameter Name="EsPlanillado" Type="smallint" Mode="In" />
+    <Parameter Name="IdCargo" Type="smallint" Mode="In" />
+    <Parameter Name="IdClasificacionCargo" Type="smallint" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoSAP" Type="varchar" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+    <Parameter Name="FechaIngreso" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="SP_I_ValorDeclarado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclarado" Type="smallint" Mode="InOut" />
+    <Parameter Name="IdEmpresa" Type="smallint" Mode="In" />
+    <Parameter Name="FechaVigenciaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="FechaVigenciaTermino" Type="datetime" Mode="In" />
+    <Parameter Name="IdMoneda" Type="smallint" Mode="In" />
+    <Parameter Name="TipoCambio" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="SP_I_ValorDeclaradoDetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclaradoDetalle" Type="int" Mode="InOut" />
+    <Parameter Name="IdValorDeclarado" Type="int" Mode="In" />
+    <Parameter Name="IdTipoValorDeclarado" Type="smallint" Mode="In" />
+    <Parameter Name="IdUnidadMedida" Type="smallint" Mode="In" />
+    <Parameter Name="Cantidad" Type="decimal" Mode="In" />
+    <Parameter Name="ImporteValorDeclarado" Type="money" Mode="In" />
+    <Parameter Name="IdMoneda" Type="smallint" Mode="In" />
+    <Parameter Name="IdTipoRegistro" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_I_ValorDeclaradoDetalleComplemento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclaradoDetalleComplemento" Type="int" Mode="InOut" />
+    <Parameter Name="IdValorDeclaradoDetalle" Type="int" Mode="In" />
+    <Parameter Name="IdTipoBien" Type="smallint" Mode="In" />
+    <Parameter Name="IdElementoElectrico" Type="int" Mode="In" />
+    <Parameter Name="IdTrabajador" Type="int" Mode="In" />
+    <Parameter Name="IdVehiculo" Type="int" Mode="In" />
+    <Parameter Name="IdInstalacion" Type="int" Mode="In" />
+    <Parameter Name="IdCentroCosto" Type="smallint" Mode="In" />
+    <Parameter Name="IdArea" Type="smallint" Mode="In" />
+    <Parameter Name="IdCargo" Type="smallint" Mode="In" />
+    <Parameter Name="IdUUNN" Type="smallint" Mode="In" />
+    <Parameter Name="IdTipoPlanilla" Type="smallint" Mode="In" />
+    <Parameter Name="IdNivelRiesgo" Type="smallint" Mode="In" />
+    <Parameter Name="ValorDeclarado" Type="decimal" Mode="In" />
+    <Parameter Name="ImporteMensual" Type="decimal" Mode="In" />
+    <Parameter Name="ImporteGratificacion" Type="decimal" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+    <Parameter Name="NombreOrigen" Type="varchar" Mode="In" />
+    <Parameter Name="NombreAsignado" Type="varchar" Mode="In" />
+    <Parameter Name="Ruta" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_I_ValorDeclaradoDetalleComplemento_trabajador_excel_writer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclaradoDetalleComplemento" Type="int" Mode="InOut" />
+    <Parameter Name="IdValorDeclaradoDetalle" Type="int" Mode="In" />
+    <Parameter Name="IdTipoBien" Type="smallint" Mode="In" />
+    <Parameter Name="IdElementoElectrico" Type="int" Mode="In" />
+    <Parameter Name="IdTrabajador" Type="int" Mode="In" />
+    <Parameter Name="IdVehiculo" Type="int" Mode="In" />
+    <Parameter Name="IdInstalacion" Type="int" Mode="In" />
+    <Parameter Name="IdCentroCosto" Type="smallint" Mode="In" />
+    <Parameter Name="IdArea" Type="smallint" Mode="In" />
+    <Parameter Name="IdCargo" Type="smallint" Mode="In" />
+    <Parameter Name="IdUUNN" Type="smallint" Mode="In" />
+    <Parameter Name="IdTipoPlanilla" Type="smallint" Mode="In" />
+    <Parameter Name="IdNivelRiesgo" Type="smallint" Mode="In" />
+    <Parameter Name="ValorDeclarado" Type="decimal" Mode="In" />
+    <Parameter Name="ImporteMensual" Type="decimal" Mode="In" />
+    <Parameter Name="ImporteGratificacion" Type="decimal" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+    <Parameter Name="NombreOrigen" Type="varchar" Mode="In" />
+    <Parameter Name="NombreAsignado" Type="varchar" Mode="In" />
+    <Parameter Name="Ruta" Type="varchar" Mode="In" />
+    <Parameter Name="DNI" Type="varchar" Mode="In" />
+    <Parameter Name="Nombres" Type="varchar" Mode="In" />
+    <Parameter Name="ApellidoPaterno" Type="varchar" Mode="In" />
+    <Parameter Name="ApellidoMaterno" Type="varchar" Mode="In" />
+    <Parameter Name="FechaNacimiento" Type="date" Mode="In" />
+    <Parameter Name="FechaIngreso" Type="date" Mode="In" />
+  </Function>
+  <Function Name="SP_I_ValorDeclaradoDetalleComplemento_vehiculo_excel_writer" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclaradoDetalleComplemento" Type="int" Mode="InOut" />
+    <Parameter Name="IdValorDeclaradoDetalle" Type="int" Mode="In" />
+    <Parameter Name="IdTipoBien" Type="smallint" Mode="In" />
+    <Parameter Name="IdVehiculo" Type="int" Mode="In" />
+    <Parameter Name="IdCentroCosto" Type="smallint" Mode="In" />
+    <Parameter Name="IdArea" Type="smallint" Mode="In" />
+    <Parameter Name="IdCargo" Type="smallint" Mode="In" />
+    <Parameter Name="IdUUNN" Type="smallint" Mode="In" />
+    <Parameter Name="IdTipoPlanilla" Type="smallint" Mode="In" />
+    <Parameter Name="IdNivelRiesgo" Type="smallint" Mode="In" />
+    <Parameter Name="ValorDeclarado" Type="decimal" Mode="In" />
+    <Parameter Name="ImporteMensual" Type="decimal" Mode="In" />
+    <Parameter Name="ImporteGratificacion" Type="decimal" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+    <Parameter Name="NombreOrigen" Type="varchar" Mode="In" />
+    <Parameter Name="NombreAsignado" Type="varchar" Mode="In" />
+    <Parameter Name="Ruta" Type="varchar" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="smallint" Mode="In" />
+    <Parameter Name="IdUnidadNegocio" Type="smallint" Mode="In" />
+    <Parameter Name="IdTipoVehiculo" Type="smallint" Mode="In" />
+    <Parameter Name="IdMarca" Type="smallint" Mode="In" />
+    <Parameter Name="IdModelo" Type="int" Mode="In" />
+    <Parameter Name="PlacaAnterior" Type="varchar" Mode="In" />
+    <Parameter Name="Placa" Type="varchar" Mode="In" />
+    <Parameter Name="SerieCarroceria" Type="varchar" Mode="In" />
+    <Parameter Name="SerieMotor" Type="varchar" Mode="In" />
+    <Parameter Name="Clase" Type="varchar" Mode="In" />
+    <Parameter Name="AnoFabricado" Type="smallint" Mode="In" />
+    <Parameter Name="IdColor" Type="smallint" Mode="In" />
+    <Parameter Name="NroAsientos" Type="smallint" Mode="In" />
+    <Parameter Name="TimonCambiado" Type="smallint" Mode="In" />
+    <Parameter Name="IdMoneda" Type="smallint" Mode="In" />
+    <Parameter Name="ValorComercial" Type="money" Mode="In" />
+    <Parameter Name="dtFechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="dtFechaTermino" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_I_ValorDeclaradoDetalleDisgregado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclaradoDetalle" Type="int" Mode="In" />
+    <Parameter Name="IdTipoPoliza" Type="smallint" Mode="In" />
+    <Parameter Name="IdDivisionPoliza" Type="smallint" Mode="In" />
+    <Parameter Name="IdUnidadMedida" Type="smallint" Mode="In" />
+    <Parameter Name="Cantidad" Type="decimal" Mode="In" />
+    <Parameter Name="IdMoneda" Type="smallint" Mode="In" />
+    <Parameter Name="ImporteValorDeclarado" Type="money" Mode="In" />
+  </Function>
+  <Function Name="SP_I_Vehiculo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdVehiculo" Type="int" Mode="InOut" />
+    <Parameter Name="IdEmpresa" Type="smallint" Mode="In" />
+    <Parameter Name="IdUnidadNegocio" Type="smallint" Mode="In" />
+    <Parameter Name="IdCentroCosto" Type="smallint" Mode="In" />
+    <Parameter Name="IdTipoVehiculo" Type="smallint" Mode="In" />
+    <Parameter Name="IdMarca" Type="smallint" Mode="In" />
+    <Parameter Name="IdModelo" Type="int" Mode="In" />
+    <Parameter Name="PlacaAnterior" Type="varchar" Mode="In" />
+    <Parameter Name="Placa" Type="varchar" Mode="In" />
+    <Parameter Name="SerieCarroceria" Type="varchar" Mode="In" />
+    <Parameter Name="SerieMotor" Type="varchar" Mode="In" />
+    <Parameter Name="Clase" Type="varchar" Mode="In" />
+    <Parameter Name="AnoFabricado" Type="smallint" Mode="In" />
+    <Parameter Name="IdColor" Type="smallint" Mode="In" />
+    <Parameter Name="NroAsientos" Type="smallint" Mode="In" />
+    <Parameter Name="TimonCambiado" Type="smallint" Mode="In" />
+    <Parameter Name="IdMoneda" Type="smallint" Mode="In" />
+    <Parameter Name="ValorComercial" Type="money" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+    <Parameter Name="dtFechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="dtFechaTermino" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_S_ArchivoValorDeclarado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclarado" Type="int" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_S_Area" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_S_BUSCAR_PERSONA_POR_ESTADO_Y_DNI" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+    <Parameter Name="DNI" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="sp_s_buscar_personacomplemento_codigo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idPersona" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_S_CentroCosto" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_S_Constante" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdConstante" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_S_Constante_Hijo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPadre" Type="smallint" Mode="In" />
+    <Parameter Name="Constante" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_S_Constante_PorCodigoAgrupador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoAgrupador" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_S_ConstantePorEstado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_S_DevuelveValorDeclarado_PorTipoValorDeclarado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTipoValorDeclarado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_S_DivisionPoliza_PorTipoPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTipoPoliza" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_S_Empresa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_S_Estado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_S_Marca" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_S_Modelo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_S_Moneda" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_S_NotificarAutorizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclarado" Type="int" Mode="In" />
+    <Parameter Name="IdProceso" Type="int" Mode="In" />
+    <Parameter Name="Dominio" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_S_PendienteAutorizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclarado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_S_Persona" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_S_RamoPoliza_PorCodigoAgrupador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="CodigoAgrupador" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="SP_S_ReportePatrimonial" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTipoPoliza" Type="smallint" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="smallint" Mode="In" />
+    <Parameter Name="FechaVigenciaInicio" Type="date" Mode="In" />
+    <Parameter Name="FechaVigenciaFin" Type="date" Mode="In" />
+  </Function>
+  <Function Name="SP_S_ReportePersonal" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTipoPoliza" Type="smallint" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="smallint" Mode="In" />
+    <Parameter Name="FechaVigenciaInicio" Type="date" Mode="In" />
+    <Parameter Name="FechaVigenciaFin" Type="date" Mode="In" />
+  </Function>
+  <Function Name="SP_S_ReporteVehiculo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTipoPoliza" Type="smallint" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="smallint" Mode="In" />
+    <Parameter Name="FechaVigenciaInicio" Type="date" Mode="In" />
+    <Parameter Name="FechaVigenciaFin" Type="date" Mode="In" />
+  </Function>
+  <Function Name="SP_S_ReporteVehiculoDetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="smallint" Mode="In" />
+    <Parameter Name="FechaVigenciaInicio" Type="date" Mode="In" />
+    <Parameter Name="FechaVigenciaFin" Type="date" Mode="In" />
+  </Function>
+  <Function Name="SP_S_TipoValorDeclarado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_S_TipoValorDeclarado_PorIdEstado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEstado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_S_TipoValorDeclarado_PorIdTipoValorDeclarado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTipoValorDeclarado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_S_TipoValorDeclarado_PorValorDeclarado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclarado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_S_trabajador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_S_trabajador_POR_ID_PERSONA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IDPERSONA" Type="int" Mode="In" />
+    <Parameter Name="IDESTADO" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_S_Unidad_Medida" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="SP_S_UnidadNegocio" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_S_validar_importe_ajustado_y_cantidad_ajustada" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclaradoDetalleDisgregado" Type="int" Mode="In" />
+    <Parameter Name="CantidadAjustada" Type="decimal" Mode="In" />
+    <Parameter Name="ImporteAjustado" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="SP_S_ValorDeclarado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="smallint" Mode="In" />
+    <Parameter Name="FechaIni" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_S_ValorDeclarado_page_server" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEmpresa" Type="smallint" Mode="In" />
+    <Parameter Name="FechaIni" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+    <Parameter Name="iPagina" Type="int" Mode="In" />
+    <Parameter Name="iTamaño" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_S_ValorDeclaradoDetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclarado" Type="int" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_S_ValorDeclaradoDetalle_PorIdValorDeclarado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclarado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_S_ValorDeclaradoDetalle_PorTipoValorDeclarado_ValorDeclarado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclarado" Type="int" Mode="In" />
+    <Parameter Name="IdTipoValorDeclarado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_S_ValorDeclaradoDetalleComplemento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclaradoDetalle" Type="int" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_S_ValorDeclaradoDetalleComplementoTrabajador" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclaradoDetalle" Type="int" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_S_ValorDeclaradoDetalleDisgregado_PorIdValorDeclarado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclarado" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_S_ValorDeclaradoDetalleDisgregado_PorIdValorDeclaradoDetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclaradoDetalle" Type="int" Mode="In" />
+  </Function>
+  <Function Name="SP_S_ValorDeclaradoPorId" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclarado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_S_Vehiculo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_U_AjustarValoresDeclarados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclaradoDetalleDisgregado" Type="int" Mode="In" />
+    <Parameter Name="CantidadAjustada" Type="decimal" Mode="In" />
+    <Parameter Name="ImporteAjustado" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="SP_U_Constante" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdConstante" Type="smallint" Mode="In" />
+    <Parameter Name="Constante" Type="varchar" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="Orden" Type="smallint" Mode="In" />
+    <Parameter Name="Tag" Type="varchar" Mode="In" />
+    <Parameter Name="IdEstado" Type="bit" Mode="In" />
+  </Function>
+  <Function Name="SP_U_PERSONA" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdPersona" Type="int" Mode="InOut" />
+    <Parameter Name="Nombres" Type="varchar" Mode="In" />
+    <Parameter Name="ApellidoPaterno" Type="varchar" Mode="In" />
+    <Parameter Name="ApellidoMaterno" Type="varchar" Mode="In" />
+    <Parameter Name="Apellidos" Type="varchar" Mode="In" />
+    <Parameter Name="IdTipoIdentidad" Type="smallint" Mode="In" />
+    <Parameter Name="NroIdentidad" Type="varchar" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="sp_u_personacomplemento" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="idPersona" Type="int" Mode="In" />
+    <Parameter Name="sexo" Type="int" Mode="In" />
+    <Parameter Name="idGradoInstruccion" Type="int" Mode="In" />
+    <Parameter Name="FechaNacimiento" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="SP_U_TipoPoliza" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdDivisionPoliza" Type="smallint" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="Abreviatura" Type="varchar" Mode="In" />
+    <Parameter Name="AplicaProveedor" Type="bit" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_U_TipoValorDeclarado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTipoValorDeclarado" Type="smallint" Mode="In" />
+    <Parameter Name="Nombre" Type="varchar" Mode="In" />
+    <Parameter Name="Descripcion" Type="varchar" Mode="In" />
+    <Parameter Name="AfectaImporte" Type="smallint" Mode="In" />
+    <Parameter Name="AfectaCantidad" Type="smallint" Mode="In" />
+    <Parameter Name="PermiteCargaDetalle" Type="smallint" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_U_TRABAJADOR" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdTrabajador" Type="int" Mode="InOut" />
+    <Parameter Name="IdPersona" Type="int" Mode="In" />
+    <Parameter Name="IdArea" Type="smallint" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="smallint" Mode="In" />
+    <Parameter Name="IdUnidadNegocio" Type="smallint" Mode="In" />
+    <Parameter Name="IdCentroServicio" Type="smallint" Mode="In" />
+    <Parameter Name="EsPlanillado" Type="smallint" Mode="In" />
+    <Parameter Name="IdCargo" Type="smallint" Mode="In" />
+    <Parameter Name="IdClasificacionCargo" Type="smallint" Mode="In" />
+    <Parameter Name="Email" Type="varchar" Mode="In" />
+    <Parameter Name="CodigoSAP" Type="varchar" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+    <Parameter Name="FechaIngreso" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="SP_U_ValorDeclarado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclarado" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="smallint" Mode="In" />
+    <Parameter Name="FechaIni" Type="datetime" Mode="In" />
+    <Parameter Name="FechaFin" Type="datetime" Mode="In" />
+    <Parameter Name="IdMoneda" Type="smallint" Mode="In" />
+    <Parameter Name="TipoCambio" Type="decimal" Mode="In" />
+  </Function>
+  <Function Name="SP_U_ValorDeclarado_CamposAjustados" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclarado" Type="int" Mode="In" />
+    <Parameter Name="IdValorDeclaradoDetalle" Type="int" Mode="In" />
+    <Parameter Name="Afecta" Type="char" Mode="In" />
+  </Function>
+  <Function Name="SP_U_ValorDeclarado_Estado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclarado" Type="int" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_U_ValorDeclaradoAutorizacion" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdClaveUnica" Type="uniqueidentifier" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_U_ValorDeclaradoDetalle" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclaradoDetalle" Type="int" Mode="In" />
+    <Parameter Name="TipoValorDeclarado" Type="smallint" Mode="In" />
+    <Parameter Name="UnidadMedida" Type="smallint" Mode="In" />
+    <Parameter Name="IdMoneda" Type="smallint" Mode="In" />
+    <Parameter Name="Cantidad" Type="decimal" Mode="In" />
+    <Parameter Name="ImporteValorDeclarado" Type="money" Mode="In" />
+  </Function>
+  <Function Name="SP_U_ValorDeclaradoDetalleComplementoPorEstado" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdValorDeclaradoDetalle" Type="int" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+  </Function>
+  <Function Name="SP_U_Vehiculo" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="IdVehiculo" Type="int" Mode="In" />
+    <Parameter Name="IdEmpresa" Type="smallint" Mode="In" />
+    <Parameter Name="IdUnidadNegocio" Type="smallint" Mode="In" />
+    <Parameter Name="IdCentroCosto" Type="smallint" Mode="In" />
+    <Parameter Name="IdTipoVehiculo" Type="smallint" Mode="In" />
+    <Parameter Name="IdMarca" Type="smallint" Mode="In" />
+    <Parameter Name="IdModelo" Type="int" Mode="In" />
+    <Parameter Name="PlacaAnterior" Type="varchar" Mode="In" />
+    <Parameter Name="Placa" Type="varchar" Mode="In" />
+    <Parameter Name="SerieCarroceria" Type="varchar" Mode="In" />
+    <Parameter Name="SerieMotor" Type="varchar" Mode="In" />
+    <Parameter Name="Clase" Type="varchar" Mode="In" />
+    <Parameter Name="AnoFabricado" Type="smallint" Mode="In" />
+    <Parameter Name="IdColor" Type="smallint" Mode="In" />
+    <Parameter Name="NroAsientos" Type="smallint" Mode="In" />
+    <Parameter Name="TimonCambiado" Type="smallint" Mode="In" />
+    <Parameter Name="IdMoneda" Type="smallint" Mode="In" />
+    <Parameter Name="ValorComercial" Type="money" Mode="In" />
+    <Parameter Name="IdEstado" Type="smallint" Mode="In" />
+    <Parameter Name="dtFechaInicio" Type="datetime" Mode="In" />
+    <Parameter Name="dtFechaTermino" Type="datetime" Mode="In" />
+  </Function>
+  <Function Name="ValorDeclaradoAutorizacion_Insertar_pa" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="P_IdValorDeclarado" Type="int" Mode="In" />
+    <Parameter Name="P_IdEmpresa" Type="smallint" Mode="In" />
+    <Parameter Name="P_IdProceso" Type="smallint" Mode="In" />
+  </Function>
+  <EntityContainer Name="SegurosDBModelStoreContainer" />
+</Schema>

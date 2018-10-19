@@ -1,0 +1,217 @@
+﻿
+@{
+    ViewBag.Title = "Autorize";
+    Layout = null;
+}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Distriluz</title>
+    <script src="~/Scripts/_nameSpace.js"></script>
+
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Content/Site.css")
+    @Styles.Render("~/Content/DataTables/css/jquery.dataTables.css")
+    @Styles.Render("~/Content/themes/base/jquery-ui.css")
+
+    @*@Styles.Render("~/Content/bootstrap-datetimepicker.min.css")*@
+
+    @*@Styles.Render("~/Content/jquery-confirm.min.css")*@
+
+    <!-- Start Global Mandatory Style
+    =====================================================================-->
+    <!-- jquery-ui css -->
+    @*@Styles.Render("~/Content/PlantNueva/plugins/jquery-ui-1.12.1/jquery-ui.min.css")*@
+    <!-- Bootstrap -->
+    @*@Styles.Render("~/Content/PlantNueva/bootstrap/css/bootstrap.min.css")*@
+    <!-- Bootstrap rtl -->
+    <!--<link href="assets/bootstrap-rtl/bootstrap-rtl.min.css" rel="stylesheet" type="text/css"/>-->
+    <!-- Lobipanel css -->
+    @Styles.Render("~/Content/PlantNueva/plugins/lobipanel/lobipanel.min.css")
+    <!-- Pace css -->
+    @Styles.Render("~/Content/PlantNueva/plugins/pace/flash.css")
+    <!--  Font Awesome -->
+    @Styles.Render("~/Content/PlantNueva/font-awesome/css/font-awesome.min.css")
+    <!-- Pe-icon -->
+    @Styles.Render("~/Content/PlantNueva/pe-icon-7-stroke/css/pe-icon-7-stroke.css")
+    <!-- Themify icons -->
+    @Styles.Render("~/Content/PlantNueva/themify-icons/themify-icons.css")
+
+    <!-- End Global Mandatory Style
+    =====================================================================-->
+    <!-- Start page Label Plugins
+    =====================================================================-->
+    <!-- Toastr css -->
+    @Styles.Render("~/Content/PlantNueva/plugins/toastr/toastr.css")
+    <!-- Emojionearea -->
+    @Styles.Render("~/Content/PlantNueva/plugins/emojionearea/emojionearea.min.css")
+    <!-- Monthly css -->
+    @Styles.Render("~/Content/PlantNueva/plugins/monthly/monthly.css")
+
+    <!-- End page Label Plugins
+    =====================================================================-->
+    <!-- Start Theme Layout Style
+    =====================================================================-->
+    <!-- Theme style -->
+    @Styles.Render("~/Content/PlantNueva/dist/css/styleBD.css")
+    <!-- Theme style rtl -->
+    <!-- End Theme Layout Style
+    =====================================================================-->
+    <!-- Start Core Plugins
+           =====================================================================-->
+    @Scripts.Render("~/Scripts/umd/popper.js")
+
+    @Scripts.Render("~/Scripts/jquery-3.3.1.js")
+
+    @Scripts.Render("~/Scripts/jquery-ui-1.12.1.js")
+
+    @Scripts.Render("~/Scripts/jquery.validate.js")
+
+    @Scripts.Render("~/Scripts/bootstrap.js")
+
+    @Scripts.Render("~/Scripts/respond.js")
+
+    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
+
+    @Scripts.Render("~/Scripts/modernizr-2.8.3.js")
+
+    @Scripts.Render("~/Scripts/moment-with-locales.js")
+
+    @Scripts.Render("~/Scripts/moment.min.js")
+
+    @*@Scripts.Render("~/Scripts/bootstrap-datetimepicker.min.js")*@
+
+    @Scripts.Render("~/Scripts/jquery-confirm.min.js")
+
+    <!-- lobipanel -->
+    @Scripts.Render("~/Content/PlantNueva/plugins/lobipanel/lobipanel.min.js")
+    <!-- Pace js -->
+    @Scripts.Render("~/Content/PlantNueva/plugins/pace/pace.min.js")
+    <!-- SlimScroll -->
+    @Scripts.Render("~/Content/PlantNueva/plugins/slimScroll/jquery.slimscroll.min.js")
+    <!-- FastClick -->
+    @Scripts.Render("~/Content/PlantNueva/plugins/fastclick/fastclick.min.js")
+
+
+    @*@Scripts.Render("~/Scripts/Shared/Layout.js")*@
+    <!-- End Core Plugins
+    =====================================================================-->
+
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <header class="main-header">
+            <a href="/Home/Index" class="logo">
+                <!-- Logo -->
+                <span class="logo-mini">
+                    <!--<b>A</b>BD-->
+                    <img src="~/Content/Images/mini-distri.png" alt="">
+                </span>
+                <span class="logo-lg">
+                    <!--<b>Admin</b>BD-->
+                    <img src="~/Content/Images/distri-hor.gif" alt="">
+                </span>
+            </a>
+            
+     
+        </header>
+
+
+
+
+        <!-- =============================================== -->
+        <!-- Content Wrapper. Contains page content -->
+
+        <section class="content" id="containerPage">
+
+            <section class="container">
+                <div class="panel panel-primary">
+                    <div class="panel-heading clearfix">
+                        <h3 class="panel-title pull-left">Autorizacion Realizada correctamente</h3>
+                    </div>
+                    <div class="panel-body">
+
+                    </div>
+                </div>
+            </section>
+
+        </section>
+        <footer class="main-footer" style="margin-left:0px">
+            <div class="pull-right hidden-xs"> <b>Version</b> 1.0</div>
+            <strong>Distriluz Copyright &copy; 2017-2018</strong> - Derechos reservados.
+        </footer>
+    </div>
+
+    <!-- Modal -->
+    <div data-backdrop="static" data-keyboard="false" class="modal fade" id="divModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" id="modalHeader">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    ...
+                </div>
+                <div class="modal-footer" id="modalFooter">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pequeño-->
+    <div data-backdrop="static" data-keyboard="false" class="modal fade" id="divFrontModalSmall" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" id="modalHeader">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    ...
+                </div>
+                <div class="modal-footer" id="modalFooter">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div data-backdrop="static" data-keyboard="false" class="modal fade" id="divFrontModal" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" id="modalHeader">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    ...
+                </div>
+                <div class="modal-footer" id="modalFooter">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+</body>
+</html>
+

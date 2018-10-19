@@ -1,0 +1,42 @@
+﻿@model SiniestrosSeguros.DTO.ModelCustoms.Mensaje
+
+@{
+    if (Model.esError)
+    {
+        ViewBag.Title = "Error";
+    }
+    else
+    {
+        ViewBag.Title = "Confirmación";
+    }
+
+}
+@if (Model.status == System.Net.HttpStatusCode.NotFound)
+{
+
+    <section class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title pull-left">@ViewBag.Title</h3>
+            </div>
+            <div class="panel-body">
+                <h1 class="text-danger" style="font-size:18px;">Al realizar la operación ocurrió lo siguiente:</h1>
+                <h2 class="text-danger" style="font-size:16px;">@Html.DisplayFor(m => m.mensaje)</h2>
+            </div>
+        </div>
+    </section>
+}
+else
+{
+
+    @if (Model.esError)
+    {
+        <h1 class="text-danger" style="font-size:18px;">Al realizar la operación ocurrió lo siguiente:</h1>
+        <h2 class="text-danger" style="font-size:16px;">@Html.DisplayFor(m => m.mensaje)</h2>
+    }
+    else
+    {
+        <h1 class="text-success" style="font-size:16px;">La operación se ejecuto correctamente</h1>
+    }
+
+}

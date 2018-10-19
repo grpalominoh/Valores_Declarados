@@ -1,0 +1,99 @@
+﻿@model SiniestrosSeguros.DTO.ModelViews.ValorDeclarado.ValorDeclaradoModalModelView.VDDCModalView
+@using System.Configuration
+
+@{
+    ViewBag.Title = "Valor Declarado Complemento";
+}
+
+
+<script src="~/Scripts/ValorDeclarado/CRUD_VDDC.js?version=@ConfigurationManager.AppSettings["version"].ToString()"></script>
+
+
+@Html.Hidden("informe_IdValorDeclaradoDetalle", (int?)ViewBag.ValorDeclaradoDetalle_IdValorDeclaradoDetalle)
+@Html.Hidden("IdTipoValorDeclarado", (int?)ViewBag.IdTipoValorDeclarado)
+
+<div class="alert alert-danger" role="alert" id="divErrorComplemento"> </div>
+<section>
+    <div id="lstFiltrosEvaluar">
+        <div class="form-group">
+            <div class="form-horizontal">
+                <fieldset>
+                    <legend>General</legend>
+
+                    <table class="table table-responsive" id="tbValorDeclaradoDetalleComplemento" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.LabelFor(model => model.IdUUNN)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.UnidadNegocio)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.IdCentroCosto)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.CentroCosto)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.NroPlaca)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.SerieMotor)
+                                </th>
+
+                                <th>
+                                    @Html.LabelFor(model => model.SerieCarroceria)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.idMarca)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.Marca)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.idModelo)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.Modelo)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.AnoFabricacion)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.Clase)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.Ocupantes)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.TimonCambiado)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.FechaInicio)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.FechaTermino)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.idMoneda)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.Moneda)
+                                </th>
+                                <th class="text-center">
+                                    @Html.LabelFor(model => model.ValorDeclarado)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

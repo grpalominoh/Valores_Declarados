@@ -1,0 +1,62 @@
+﻿@model SiniestrosSeguros.DTO.ModelViews.TipoPoliza.InicioTipoPolizaModelView
+@using System.Configuration
+
+    @{
+        ViewBag.Title = "Gestor de Ramo de Póliza";
+    }
+
+    @*@Scripts.Render("~/Scripts/TipoPoliza/Index.js")*@
+    <script src="~/Scripts/TipoPoliza/Index.js?version=@ConfigurationManager.AppSettings["version"].ToString()"></script>
+    @*<h2>@ViewBag.Title</h2>*@
+
+
+    <section class="container">
+        <div class="panel panel-primary">
+            <div class="panel-heading clearfix">
+                <h3 class="panel-title pull-left">Gestor de Ramo de Póliza</h3>
+            </div>
+            <div class="row" style="margin-top:20px;">
+
+                <div class="input-group col-sm-6">
+                    @Html.LabelFor(m => m.IdConstante, new { @class = "control-label etiqueta col-md-4" })
+                    @Html.DropDownList("ListaRamoPoliza", null, null, htmlAttributes: new { @class = "form-control", @id = "selRamoPoliza", @onchange = "actualizaDataTable()" })
+                    @*@Html.DropDownListFor(m=> m.IdConstante, Model.ListaRamoPoliza, htmlAttributes: new { @id = "selRamoPoliza" })*@
+                    @Html.ValidationMessageFor(m => m.IdConstante, "", new { @class = "text-danger" })
+                </div>
+
+            </div>
+            <div class="panel-body" style="position: relative;">
+               
+                <div id="tablaPoliza1" >
+                    <div class=" pull-right">
+                        <a class="btn btn-primary ico-create" style="position: absolute;right: 0px;top: 25px;    z-index: 1;" id="crear2" href="#" onclick="showModalCreate()">Crear</a>
+                    </div>
+                    <div class="table-responsive ">
+                        <table class="table table-striped" id="tbTipoPoliza">
+                            <thead>
+                                <tr>
+                                    <th class="text-center">
+                                        @Html.LabelFor(m => m.TablaPoliza.IdDivisionPoliza)
+                                    </th>
+                                    <th>
+                                        @Html.LabelFor(m => m.TablaPoliza.Descripcion)
+                                    </th>
+                                    <th>
+                                        @Html.LabelFor(m => m.TablaPoliza.Abreviatura)
+                                    </th>
+                                    <th class="text-center">
+                                        @Html.LabelFor(m => m.TablaPoliza.AplicaProveedor)
+                                    </th>
+                                    <th>
+                                        @Html.LabelFor(m => m.TablaPoliza.IdEstado)
+                                    </th>
+                                    <th><label>Opción</label></th>
+                                </tr>
+                            </thead>
+                            <tbody></tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>

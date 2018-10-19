@@ -1,0 +1,48 @@
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DAO\bin\Release\SiniestrosSeguros.DAO.dll.config
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DAO\bin\Release\SiniestrosSeguros.DAO.dll
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DAO\bin\Release\SiniestrosSeguros.DAO.pdb
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DAO\bin\Release\EntityFramework.dll
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DAO\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DAO\bin\Release\SiniestrosSeguros.DTO.dll
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DAO\bin\Release\SiniestrosSeguros.DTO.pdb
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DAO\bin\Release\EntityFramework.xml
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DAO\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DAO\bin\Release\es\EntityFramework.resources.dll
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DAO\bin\Release\es\EntityFramework.SqlServer.resources.dll
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DAO\obj\Release\SiniestrosSeguros.DAO.csprojResolveAssemblyReference.cache
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DAO\obj\Release\SiniestrosSeguros.DAO.dll
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DAO\obj\Release\SiniestrosSeguros.DAO.pdb
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DAO\bin\Release\SiniestrosSeguros.DAO.dll.config
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DAO\bin\Release\SiniestrosSeguros.DAO.dll
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DAO\bin\Release\SiniestrosSeguros.DAO.pdb
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DAO\bin\Release\EntityFramework.dll
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DAO\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DAO\bin\Release\SiniestrosSeguros.DTO.dll
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DAO\bin\Release\SiniestrosSeguros.DTO.pdb
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DAO\bin\Release\SiniestrosSeguros.DTO.dll.config
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DAO\bin\Release\EntityFramework.xml
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DAO\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DAO\bin\Release\es\EntityFramework.resources.dll
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DAO\bin\Release\es\EntityFramework.SqlServer.resources.dll
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DAO\obj\Release\SiniestrosSeguros.DAO.csprojResolveAssemblyReference.cache
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DAO\obj\Release\SiniestrosSeguros.DAO.csproj.CoreCompileInputs.cache
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DAO\obj\Release\SiniestrosSeguros.DAO.csproj.CopyComplete
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DAO\obj\Release\SiniestrosSeguros.DAO.dll
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DAO\obj\Release\SiniestrosSeguros.DAO.pdb
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DAO\bin\Release\SiniestrosSeguros.DAO.dll.config
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DAO\bin\Release\SiniestrosSeguros.DAO.dll
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DAO\bin\Release\SiniestrosSeguros.DAO.pdb
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DAO\bin\Release\EntityFramework.dll
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DAO\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DAO\bin\Release\SiniestrosSeguros.DTO.dll
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DAO\bin\Release\SiniestrosSeguros.DTO.pdb
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DAO\bin\Release\SiniestrosSeguros.DTO.dll.config
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DAO\bin\Release\EntityFramework.xml
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DAO\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DAO\bin\Release\es\EntityFramework.resources.dll
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DAO\bin\Release\es\EntityFramework.SqlServer.resources.dll
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DAO\obj\Release\SiniestrosSeguros.DAO.csprojAssemblyReference.cache
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DAO\obj\Release\SiniestrosSeguros.DAO.csproj.CoreCompileInputs.cache
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DAO\obj\Release\SiniestrosSeguros.DAO.csproj.CopyComplete
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DAO\obj\Release\SiniestrosSeguros.DAO.dll
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DAO\obj\Release\SiniestrosSeguros.DAO.pdb

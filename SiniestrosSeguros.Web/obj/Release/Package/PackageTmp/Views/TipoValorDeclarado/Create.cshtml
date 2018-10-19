@@ -1,0 +1,73 @@
+﻿@model SiniestrosSeguros.DTO.ModelViews.TiposValoresDeclarados.CrearTipoValorDeclaradoModelView
+@{
+
+    ViewBag.Title = "Registro de Tipo de Valor Declarado";
+}
+
+@Scripts.Render("~/Scripts/TipoValorDeclarado/CRUD.js")
+
+
+@using (Html.BeginForm("Create", "TipoValorDeclarado", FormMethod.Post, new { id = "frmCRUDTVD" }))
+{
+    @Html.AntiForgeryToken()
+	<div class="alert alert-warning" role="alert" id="divError">
+
+    </div>
+
+<section>
+    <div id="lstFiltrosEvaluar">
+        <div class="row">
+
+            <div class="col-sm-6">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Nombre, new { @class = "col-md-12 control-label" })
+                        <div class="col-md-12">
+                            @Html.HiddenFor(m => m.IdTipoValorDeclarado, new { @class = "form-control" })
+                            @Html.TextBoxFor(m => m.Nombre, new {  @class = "form-control formatoTexto", maxlength = 64 })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(m => m.Descripcion, new { @class = "col-md-12 control-label" })
+                        <div class="col-md-12">
+                            @Html.TextAreaFor(m => m.Descripcion, new { @onkeypress = "return soloNumerosLetrasGuionesComas(event)", @class = "form-control", maxlength = 255 })
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-sm-6">
+                <div class="input-group" style="margin-top: 7px;">
+                    @Html.CheckBoxFor(m => m.AfectaImporte)
+                    @Html.ValidationMessageFor(m => m.AfectaImporte, "", new { @class = "text-danger" })
+                    @Html.LabelFor(m => m.AfectaImporte, new { @class = "control-label labelNew" })
+                </div>
+
+                <div class="input-group" style="margin-top: 20px;">
+                    @Html.CheckBoxFor(m => m.AfectaCantidad)
+                    @Html.ValidationMessageFor(m => m.AfectaCantidad, "", new { @class = "text-danger" })
+                    @Html.LabelFor(m => m.AfectaCantidad, new { @class = "control-label labelNew" })
+                </div>
+
+                <div class="form-group" style="margin-top: 20px;">
+                    @Html.CheckBoxFor(m => m.PermiteCargaDetalle)
+                    @Html.ValidationMessageFor(m => m.PermiteCargaDetalle, "", new { @class = "text-danger" })
+                    @Html.LabelFor(m => m.PermiteCargaDetalle, new { @class = "control-label labelNew",@style= "position: relative;top: -13px;left:-5px " })
+                </div>
+
+                @*<div class="form-group">
+                    @Html.CheckBoxFor(m => m.IdEstado)
+                    @Html.LabelFor(m => m.IdEstado, new { @class = "control-label labelNew" })
+                </div>*@
+
+                <div class="form-group pull-right">
+                    <button type="submit" class="btn btn-primary ico-grabar">Guardar</button>
+                     <button type="button" class="btn btn-secondary ico-cancelar" data-dismiss="modal">Cancelar</button>
+                </div>
+            </div>
+        </div>
+        </div>
+</section>
+}
+

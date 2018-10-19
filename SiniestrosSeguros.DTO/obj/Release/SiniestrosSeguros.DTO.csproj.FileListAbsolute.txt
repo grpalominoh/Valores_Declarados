@@ -1,0 +1,38 @@
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DTO\bin\Release\SiniestrosSeguros.DTO.dll.config
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DTO\bin\Release\SiniestrosSeguros.DTO.dll
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DTO\bin\Release\SiniestrosSeguros.DTO.pdb
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DTO\bin\Release\EntityFramework.dll
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DTO\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DTO\bin\Release\EntityFramework.xml
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DTO\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DTO\bin\Release\es\EntityFramework.resources.dll
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DTO\bin\Release\es\EntityFramework.SqlServer.resources.dll
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DTO\obj\Release\SiniestrosSeguros.DTO.dll
+C:\Users\ydburgosp\Desktop\Fuente\SiniestrosSeguros.DTO\obj\Release\SiniestrosSeguros.DTO.pdb
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DTO\bin\Release\SiniestrosSeguros.DTO.dll.config
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DTO\bin\Release\SiniestrosSeguros.DTO.dll
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DTO\bin\Release\SiniestrosSeguros.DTO.pdb
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DTO\bin\Release\EntityFramework.dll
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DTO\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DTO\bin\Release\EntityFramework.xml
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DTO\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DTO\bin\Release\es\EntityFramework.resources.dll
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DTO\bin\Release\es\EntityFramework.SqlServer.resources.dll
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DTO\obj\Release\SiniestrosSeguros.DTO.csprojResolveAssemblyReference.cache
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DTO\obj\Release\SiniestrosSeguros.DTO.csproj.CoreCompileInputs.cache
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DTO\obj\Release\SiniestrosSeguros.DTO.csproj.CopyComplete
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DTO\obj\Release\SiniestrosSeguros.DTO.dll
+C:\Users\312delaware03\Documents\1-Fuentes\SiniestrosSeguros21042018\SiniestrosSeguros.DTO\obj\Release\SiniestrosSeguros.DTO.pdb
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DTO\bin\Release\SiniestrosSeguros.DTO.dll.config
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DTO\bin\Release\SiniestrosSeguros.DTO.dll
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DTO\bin\Release\SiniestrosSeguros.DTO.pdb
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DTO\bin\Release\EntityFramework.dll
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DTO\bin\Release\EntityFramework.SqlServer.dll
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DTO\bin\Release\EntityFramework.xml
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DTO\bin\Release\EntityFramework.SqlServer.xml
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DTO\bin\Release\es\EntityFramework.resources.dll
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DTO\bin\Release\es\EntityFramework.SqlServer.resources.dll
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DTO\obj\Release\SiniestrosSeguros.DTO.csproj.CoreCompileInputs.cache
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DTO\obj\Release\SiniestrosSeguros.DTO.csproj.CopyComplete
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DTO\obj\Release\SiniestrosSeguros.DTO.dll
+C:\Users\312Delaware03\Downloads\SF_DLW0001-GVD_Ver2.0 [18072018]\SiniestrosSeguros.DTO\obj\Release\SiniestrosSeguros.DTO.pdb

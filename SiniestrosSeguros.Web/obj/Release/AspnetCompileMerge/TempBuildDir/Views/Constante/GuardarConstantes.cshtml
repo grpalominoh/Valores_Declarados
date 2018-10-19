@@ -1,0 +1,106 @@
+﻿@model SiniestrosSeguros.DTO.ModelViews.Constantes.VerConstanteModelView
+@using System.Configuration;
+    @{
+        ViewBag.Title = "Detalle de la Agrupación";
+    }
+    <script src="~/Scripts/Constante/CRUD.js?version=@ConfigurationManager.AppSettings["version"].ToString()"></script>
+    <script src="~/Scripts/Constante/GuardarConstantes.js?version=@ConfigurationManager.AppSettings["version"].ToString()"></script>
+    @*@Scripts.Render("~/Scripts/Constante/CRUD.js")
+        @Scripts.Render("~/Scripts/Constante/GuardarConstantes.js")*@
+
+    @using (Html.BeginForm("GuardarConstantes", "Constante", new { TipoOperacion = ViewBag.TipoOperacion }, FormMethod.Post, new { id = "frmCRUDConst" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="alert alert-warning" role="alert" id="divError">
+
+        </div>
+
+        <section>
+            <div class="col-sm-12" id="lstFiltrosEvaluar">
+                <div class="form-group">
+                    <div class="form-horizontal">
+                        <div class="form-group" id="IdOcultar">
+                            @Html.LabelFor(m => m.IdPadre, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(m => m.IdPadre, new { @class = "form-control" })
+                            </div>
+
+                            @Html.LabelFor(m => m.IdConstante, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-12">
+                                @Html.TextBoxFor(m => m.IdConstante, new { @class = "form-control formatoTexto" })
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.ConstantePadre, new { @class = "col-md-12 control-label" })
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(m => m.ConstantePadre, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                </div>
+
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.CodigoAgrupador, new { @class = "col-md-12 control-label" })
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(m => m.CodigoAgrupador, new { @class = "form-control", @readonly = "readonly" })
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Constante, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(m => m.Constante, new { @class = "form-control formatoTexto", @maxlength="128" })
+                                        @Html.ValidationMessageFor(m => m.Constante)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Descripcion, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-12">
+                                        @Html.TextAreaFor(m => m.Descripcion, new { @class = "form-control", @maxlength="256" })
+                                        @Html.ValidationMessageFor(m => m.Descripcion)
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">                                     
+                                    @Html.LabelFor(m => m.Orden, new { @class = "col-md-12 control-label" })
+                                    <div class="col-md-12">
+                                        @Html.TextBoxFor(m => m.Orden, new { @class = "form-control formatoEntero", @maxlength = "4" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Tag, new { @class = "col-md-12 control-label" })
+                                    <div class="col-md-12">
+                                         
+                                        @Html.TextBoxFor(m => m.Tag, new { @class = "form-control" ,@maxlength="32"})
+                                        @Html.ValidationMessageFor(m => m.Tag)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @*@Html.LabelFor(m => m.IdEstado, new { @class = "col-md-12 control-label" })*@
+                                    <div class="col-md-12 input-group">
+                                        @Html.CheckBoxFor(m => m.IdEstado, new { @class = "text-danger", @id = "lEstado" })
+                                        <label class="labelNew">Activo</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group pull-right">
+                            <button type="submit" class="btn btn-primary ico-grabar">Guardar</button>
+                            <button type="button" class="btn btn-secondary ico-cancelar" data-dismiss="modal">Cancelar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        @Html.Hidden("TipoOperacion")
+    }
+

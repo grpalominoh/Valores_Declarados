@@ -1,0 +1,48 @@
+﻿@model SiniestrosSeguros.DTO.ModelViews.Constantes.VerConstanteModelView
+@using System.Configuration;
+<script src="~/Scripts/Constante/DetalleConsultarConstantes.js?version=@ConfigurationManager.AppSettings["version"].ToString()"></script>
+
+<h3 class="subtitulo">@Html.Label("Detalle de la Agrupación")</h3>
+
+<div class="pull-right">
+    @Html.ActionLink("Nuevo Detalle", "GuardarConstantes", "Constante",
+                new { IdConstante = ViewBag.IdConstante, TipoOperacion = "Guardar" },
+                new
+                {
+                    @class = "btn btn-primary InModal ico-create",
+                    title = "Detalle de la Agrupación",
+                    id = "NuevoDetalle",
+                    onclick = "openModal(this,event)"
+                })
+</div>
+
+<div class="table-responsive">
+    <table class="table table-striped" id="tbConstanteHijo">
+        <thead>
+            <tr>
+                <th>
+                    @Html.LabelFor(m => m.IdConstante)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.Constante)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.Descripcion)
+                </th>
+                <th class="text-center">
+                    @Html.LabelFor(m => m.Orden)
+                </th>
+                <th class="text-center">
+                    @Html.LabelFor(m => m.Estado)
+                </th>
+                <th class="text-center">
+                    <label>Opción</label>
+                </th>
+            </tr>
+        </thead>
+        <tbody id="buscar"></tbody>
+    </table>
+</div>
+
+@Html.Hidden("IdConstante")
+

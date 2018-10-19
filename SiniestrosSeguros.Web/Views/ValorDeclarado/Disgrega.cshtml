@@ -1,0 +1,219 @@
+﻿@model SiniestrosSeguros.DTO.ModelViews.ValorDeclarado.DisgregarValorDeclaradoModelView.DisgregaValorDeclaradoModalModelView
+@using System.Configuration
+@{
+    /**/
+
+
+    ViewBag.Title = "Disgregar Valor Declarado";
+}
+
+@*@Scripts.Render("~/Scripts/ValorDeclarado/Disgrega.js")*@
+<script src="~/Scripts/ValorDeclarado/Disgrega.js?version=@ConfigurationManager.AppSettings["version"].ToString()"></script>
+
+@*<h2>@ViewBag.Title</h2>*@
+
+@using (Html.BeginForm("DisgregarValorDeclarado", "ValorDeclarado", FormMethod.Post, new { id = "frmDisgregarVD" }))
+{
+    <div class="alert alert-warning" role="alert" id="divError">
+
+    </div>
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.Hidden("IdValorDeclarado")
+    @Html.Hidden("IdValorDeclaradoDetalle")
+    @Html.Hidden("IdMoneda")
+    @Html.Hidden("IdUnidadMedida")
+    @Html.Hidden("ImporteValorDeclarado")
+    @Html.Hidden("Cantidad")
+    @Html.Hidden("ListaDisgregacion")
+    @Html.Hidden("ListaEliminadosDisgregacion")
+    @Html.Hidden("EstadoValorDeclarado")
+    @Html.Hidden("ListaArchivo")
+    @Html.Hidden("ListaArchivosEliminados")
+    @Html.Hidden("edit")
+    <section>
+        <div class="col-sm-12" id="lstFiltrosEvaluar">
+            <div class="form-group">
+                <div class="form-inline col-md-12">
+                    <div class="form-inline col-md-6">
+                        <label>Empresa: </label> &nbsp; <label id="txtEmpresa">@ViewBag.DescEmpresa</label> @*@Html.DisplayFor(m => m.Empresa, new { @class = "col-md-3 control-label" })*@
+                    </div>
+                    <div class="form-inline col-md-6">
+
+
+                        <div class="btn btn-success ico-subir" id="subir" onclick="triggerSubir()" style="padding-left: 30px;position:absolute;right:0">subir</div>
+                        <input type="file" id="File" style="display:none" />
+                        @*<button type="button" onclick="adjuntarArchivo()" hidden>Adjuntar archivos</button>*@
+                        @*@Html.ActionLink("Descarga de archivo", "DescargarArchivo", "ValorDeclarado",
+                            new { IdConstante = "Guardar" })*@
+                        @*<button type="button" class="btn btn-primary" id="idAdjuntar">Adjuntar archivos</button>*@
+                    </div>
+                </div>
+
+                <table class="table table-responsive" id="tbArchivosAdjuntos" style="width:100%">
+                    <thead>
+                        <tr>
+                            <th>
+                                @Html.LabelFor(m => m.TablaArchivoModelView.IdValorDeclarado)
+                            </th>
+                            <th>
+                                @Html.LabelFor(m => m.TablaArchivoModelView.IdArchivo)
+                            </th>
+                            <th>
+                                @Html.LabelFor(m => m.TablaArchivoModelView.NombreArchivo)
+                            </th>
+                            <th>
+                                @Html.LabelFor(m => m.TablaArchivoModelView.NombreAsignado)
+                            </th>
+                            <th>
+                                @Html.LabelFor(m => m.TablaArchivoModelView.Formato)
+                            </th>
+                            <th>
+                                @Html.LabelFor(m => m.TablaArchivoModelView.RutaArchivo)
+                            </th>
+                            <th>
+                                @Html.LabelFor(m => m.TablaArchivoModelView.IdEstado)
+                            </th>
+                            <th>
+                            </th>
+
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+
+                <div class="alert alert-danger" role="alert" id="divErrorDisgregacion">
+
+                </div>
+
+                <fieldset>
+                    <legend>Detalles</legend>
+                    <div class="row">
+                        <div class="form-horizontal col-md-4">
+                            <label>Tipo de Valor Declarado</label>
+                            <div class="form-group">
+                                @Html.DropDownList("ListaTipoValorDeclarado", null, "Seleccione", htmlAttributes: new { @class = "form-control", @id = "selTipoValorDeclarado", @onchange = "actualizaControlesTipoValorDeclarado()" })
+                            </div>
+                        </div>
+                        <div class="form-horizontal col-md-4">
+                            <label>Importe Real </label>
+                            <div class="form-group">
+                                <label id="txtImpReal"></label>
+
+                            </div>
+                        </div>
+                        <div class="form-horizontal col-md-4">
+                            <label>Cantidad Real </label>
+                            <div class="form-group">
+                                <label id="txtCntReal"></label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-horizontal col-md-6">
+                            <div class="form-group">
+                                <label>Ramo de Póliza</label>
+                                @Html.DropDownList("ListaRamoPoliza", null, "Seleccione", htmlAttributes: new { @class = "form-control", @id = "selRamoPoliza", @onchange = "actualizaTipoPoliza()" })
+                            </div>
+                        </div>
+                        <div class="form-horizontal col-md-6">
+                            <div class="form-group">
+                                <label>Tipo de Póliza</label>
+                                @Html.DropDownList("ListaTipoPoliza", null, "Seleccione", htmlAttributes: new { @class = "form-control", @id = "selTipoPoliza" })
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-horizontal col-md-6">
+                            <fieldset>
+                                <legend id="DisgImp">Importe</legend>
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label>Moneda : </label> <label id="txtMoneda">@ViewBag.DescMoneda</label> @*@Html.DisplayFor(m => m.Moneda, new { @class = "col-md-3 control-label" })*@
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.Importe, new { @class = "col-md-3 control-label formatoMonto", @id = "txtImporte", @maxlength = 12 })
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                        <div class="form-horizontal col-md-6">
+                            <fieldset>
+                                <legend id="DisgCant">Cantidad:</legend>
+                                <div class="form-horizontal">
+                                    <div class="form-group">
+                                        <label>Unidad de medida :</label> <label id="txtUnidadMedida"></label>
+                                    </div>
+                                    <div class="form-group">
+                                        @Html.TextBoxFor(m => m.Cantidad, new { @class = "col-md-3 control-label formatoEntero", @id = "txtCantidad", @maxlength = 12 })
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </div>
+                    </div>
+                    <div class="form-group pull-right">
+                        <button type="button" class="btn btn-primary" id="idAgregar">Agregar</button>
+                    </div>
+                </fieldset>
+            </div>
+        </div>
+
+        <table class="table table-responsive" id="tbValorDeclaradoDetalleDisgregado" style="width:100%">
+            <thead>
+                <tr>
+                    <th>
+                        @Html.LabelFor(m => m.TablaTipoPolizaDisgregadoModelView.IdValorDeclaradoDetalleDisgregado)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => m.TablaTipoPolizaDisgregadoModelView.IdValorDeclaradoDetalle)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => m.TablaTipoPolizaDisgregadoModelView.IdTipoValorDeclarado)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => m.TablaTipoPolizaDisgregadoModelView.TipoValorDeclarado)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => m.TablaTipoPolizaDisgregadoModelView.IdRamoPoliza)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => m.TablaTipoPolizaDisgregadoModelView.RamoPoliza)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => m.TablaTipoPolizaDisgregadoModelView.IdTipoPoliza)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => m.TablaTipoPolizaDisgregadoModelView.TipoPoliza)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => m.TablaTipoPolizaDisgregadoModelView.IdMoneda)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => m.TablaTipoPolizaDisgregadoModelView.Moneda)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => m.TablaTipoPolizaDisgregadoModelView.Importe)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => m.TablaTipoPolizaDisgregadoModelView.IdUnidadMedida)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => m.TablaTipoPolizaDisgregadoModelView.UnidadMedida)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => m.TablaTipoPolizaDisgregadoModelView.Cantidad)
+                    </th>
+                    <th>
+                        @Html.LabelFor(m => m.TablaTipoPolizaDisgregadoModelView.Accion)
+                    </th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+
+        <div class="form-group pull-right">
+            <button type="submit" class="btn btn-primary ico-grabar">Guardar</button>
+            <button type="button" class="btn btn-secondary ico-cancelar" data-dismiss="modal">Cancelar</button>
+        </div>
+
+    </section>
+}

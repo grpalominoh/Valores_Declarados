@@ -1,0 +1,123 @@
+﻿@model  SiniestrosSeguros.DTO.ModelViews.ValorDeclarado.BusquedaValorDeclaradoModelView
+@using System.Configuration
+
+@{
+    ViewBag.Title = "Gestor de Valor Declarado";
+}
+
+@*@Scripts.Render("~/Scripts/ValorDeclarado/Index.js")*@
+
+<script src="~/Scripts/ValorDeclarado/Index.js?version=@ConfigurationManager.AppSettings["version"].ToString()"></script>
+
+<section class="container">
+
+    <div class="alert alert-danger" role="alert" id="divErrorIndex"></div>
+    <div class="panel panel-primary">
+        <div class="panel-heading clearfix">
+            <h3 class="panel-title pull-left">Gestor de valor declarado</h3>
+        </div>
+        <div class="panel-body">
+
+            @using (Html.BeginForm("Index", "ValorDeclarado", FormMethod.Post, new { id = "frmBusqValorDeclarado" }))
+    {
+
+        <div class="row wrapNew">
+            <div class="col-md-4 input-group">
+                @Html.LabelFor(Model => Model.IdEmpresa, htmlAttributes: new { @class = "labelDate" })
+                @Html.DropDownList("IdEmpresa", null, "Seleccione...", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.IdEmpresa, "", new { @class = "text-danger" })
+            </div>
+
+            <div class="col-md-4 input-group">
+                @Html.LabelFor(model => model.FechaVigenciaIni, htmlAttributes: new { @class = "control-label labelDate" })
+                <div>
+                    <div class="input-group" id="datetimepicker">
+                        @Html.TextBox("FechaVigenciaIni", null, htmlAttributes: new { @class = "form-control inputDate" })
+
+                    </div>
+                    @Html.ValidationMessageFor(model => model.FechaVigenciaIni, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="col-md-4 input-group">
+                @Html.LabelFor(model => model.FechaVigenciaFin, htmlAttributes: new { @class = "control-label labelDate" })
+                <div>
+                    <div class="form-group">
+                        <div class="input-group date" id="datetimepicker2">
+                            @Html.TextBox("FechaVigenciaFin", null, htmlAttributes: new { @class = "form-control inputDate" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.FechaVigenciaFin, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row wrapNew">
+            <div class="col-sm-4 input-group">
+                @Html.LabelFor(Model => Model.IdEstado, htmlAttributes: new { @class = "labelDate" })
+                @Html.DropDownList("IdEstado", null, "Seleccione...", htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(m => m.IdEstado, "", new { @class = "text-danger" })
+            </div>
+            <div class="col-sm-8" style="position: relative;right: -60px;">
+                @Html.ActionLink("Crear", "Create", "ValorDeclarado", new { @class = "ico-create btn btn-primary InModal pull-right", @style = "width:96px;margin-right: 40px;", @title = "Registro de Valor Declarado" })
+                <input class="ico-buscar btn btn-primary pull-right" type="button" id="IdEnviar" value="Buscar" />
+            </div>
+        </div>
+   
+}
+
+
+            <div id="tablaPoliza1">
+
+                <div class="table-responsive">
+                    <table class="table table-striped" id="tbValorDeclarado">
+                        <thead>
+                            <tr>
+                                <th style="width: 300px;">
+                                    @Html.LabelFor(m => m.IdValorDeclarado)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(m => m.DescEmpresa)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(m => m.FechaVigenciaIni)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(m => m.FechaVigenciaIniText)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(m => m.FechaVigenciaFin)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(m => m.FechaVigenciaFinText)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(m => m.IdMoneda)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(m => m.DescMoneda)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(m => m.TipoCambio)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(m => m.DescEstado)
+                                </th>
+                                @*<th></th>
+                            <th></th>*@
+                                <th style="padding: 10px 45px !important;"><label>Opciones</label></th>
+                                @*<th></th>
+                            <th></th>
+                            <th></th>*@
+
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+ 

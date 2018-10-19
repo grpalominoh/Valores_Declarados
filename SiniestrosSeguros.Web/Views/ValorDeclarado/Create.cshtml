@@ -1,0 +1,310 @@
+﻿@model SiniestrosSeguros.DTO.ModelViews.ValorDeclarado.ValorDeclaradoModalModelView
+@using System.Configuration
+@{
+
+    ViewBag.Title = "Editar Valor Declarado";
+}
+
+@*@Scripts.Render("~/Scripts/ValorDeclarado/CRUD.js")*@
+
+<script src="~/Scripts/ValorDeclarado/CRUD.js?version=@ConfigurationManager.AppSettings["version"].ToString()"></script>
+ 
+@*<h2>@ViewBag.Title</h2>*@
+
+<style TYPE="text/css" MEDIA=screen>
+    .sinborde {
+        border: 0;
+    }
+</style>
+
+@using (Html.BeginForm("Create", "ValorDeclarado", FormMethod.Post, new { id = "frmCRUDVD" }))
+{
+
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+<section>
+    <div id="lstFiltrosEvaluar">
+        <div class="form-group">
+            <div class="form-horizontal">
+
+                <fieldset>
+                    <legend>General</legend>
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            @Html.LabelFor(Model => Model.IdEmpresa, new { @class = "col-md-2 control-label" })
+                            <div>
+
+                                @Html.HiddenFor(m => m.ValorDeclaradoCabecera.ValorDeclaradoDetalle, new { @class = "form-control" })
+                                @Html.HiddenFor(m => m.ValorDeclaradoCabecera.ValorDeclaradoDetalleEliminado, new { @class = "form-control" })
+                                @Html.HiddenFor(m => m.ValorDeclaradoCabecera.ListaArchivo, new { @class = "form-control" })
+                                @Html.HiddenFor(m => m.ValorDeclaradoCabecera.ListaArchivoEliminado, new { @class = "form-control" })
+                                @Html.HiddenFor(m => m.ValorDeclaradoDetalleComplementoVH, new { @class = "form-control" })
+                                @Html.HiddenFor(m => m.ValorDeclaradoDetalleComplementoTRAB, new { @class = "form-control" })
+                                @Html.HiddenFor(m => m.ValorDeclaradoDetalleComplementoPRAC, new { @class = "form-control" })
+                                @Html.HiddenFor(m => m.ValorDeclaradoDetalle.IdValorDeclaradoDetalle, new { @class = "form-control" })
+                                @Html.DropDownList("IdEmpresa", null, "Seleccione...", htmlAttributes: new { @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            @Html.LabelFor(Model => Model.IdMoneda, new { @class = "col-md-2 control-label" })
+                            <div>
+                                @Html.DropDownList("IdMoneda", null, "Seleccione...", htmlAttributes: new { @onclick = "validaCambioMoneda()", @class = "form-control" })
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            @Html.LabelFor(model => model.ValorDeclaradoCabecera.TipoCambio, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                @Html.TextBoxFor(m => m.ValorDeclaradoCabecera.TipoCambio, new { @onchange = "completaTipoCambio(this)", @class = "form-control TipoCambio formatoMonto", maxlength = 12 })
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-sm-4">
+                            @Html.LabelFor(model => model.ValorDeclaradoCabecera.FechaVigenciaIniModal, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                <div class="input-group" id="datetimepicker1">
+
+                                    @Html.TextBoxFor(m => m.ValorDeclaradoCabecera.FechaVigenciaIniModal, "{0:dd/MM/yyyy}", new {   @class = "datePicker form-control" })
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-4">
+                            @Html.LabelFor(model => model.ValorDeclaradoCabecera.FechaVigenciaFinModal, htmlAttributes: new { @class = "control-label" })
+                            <div>
+                                <div class="input-group" id="datetimepicker2">
+
+                                    @Html.TextBoxFor(m => m.ValorDeclaradoCabecera.FechaVigenciaFinModal, "{0:dd/MM/yyyy}", new {  @class = "form-control" })
+                                    <span class="input-group-addon">
+                                        <span class="glyphicon glyphicon-calendar"></span>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-group col-sm-3" style="margin-top: 25px;">                           
+                            <div class="btn btn-success ico-subir" id="subir" onclick="triggerSubir()" style="padding-left: 30px;">subir</div>
+                            <input type="file" id="File" style="display:none" />
+                            
+                             <!--
+                            <input type="file" id="File" onchange="adjuntarArchivo()" style="width: 140px;" />
+                            <button type="button"  onclick="adjuntarArchivo()" hidden>Enviar</button>
+                                -->
+
+                            <br />
+                            @{ 
+                                var tamaño = decimal.Parse(@ConfigurationManager.AppSettings["MaxSizeArchivo"].ToString()) / 1024;
+                            }
+                            <a style="font-size:small">Peso Máx.: @tamaño Mb</a>
+                        </div>
+                        @*<div class="col-sm-4" id="divfil"  onclick="ejemplo()">
+                            <input type="file" id="File" style="display:none"   onclick="adjuntarArchivo()" />
+                            <input type="file" id="File" onchange="adjuntarArchivo()" />
+                             <button type="button" onclick="adjuntarArchivo()" hidden>Enviar</button>
+                            clic me
+                        </div>*@
+                    </div>
+                    <div class="alert alert-danger" role="alert" id="divErrorArchivo"></div>
+                    <table class="table table-responsive" id="tbArchivosAdjuntos" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.LabelFor(m => m.ListaArchivo.IdValorDeclarado)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(m => m.ListaArchivo.IdArchivo)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(m => m.ListaArchivo.NombreArchivo)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(m => m.ListaArchivo.NombreAsignado)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(m => m.ListaArchivo.Formato)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(m => m.ListaArchivo.RutaArchivo)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(m => m.ListaArchivo.IdEstado)
+                                </th>
+                                <th>
+                                </th>
+                                @*<th>
+                                </th>*@
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+
+                </fieldset>
+
+            </div>
+        </div>
+    </div>
+
+    @using (Html.BeginForm(new { id = "frmCRUDVDDetalle" }))
+    {
+        @Html.AntiForgeryToken()
+
+        <section id="cuerpo">
+            <div id="lstFiltrosEvaluar">
+                <div class="form-group">
+                    <div class="form-horizontal">
+                        <fieldset>
+                            <legend>Detalle</legend>
+                            <div class="alert alert-danger" role="alert" id="divErrorDetalle"></div>
+                            <div class="form-group col-sm-6">
+                                @Html.LabelFor(Model => Model.ValorDeclaradoDetalle.IdTipoValorDeclarado, new { @class = "control-label" })
+                                <div>
+                                    @Html.DropDownList("IdTipoValorDeclarado", null, "Seleccione...", htmlAttributes: new { @class = "form-control IdTipoValorDeclaradoDetalle", @onchange = "DevuelveFlagsPorIdTipoValorDeclarado()" })
+                                </div>
+                            </div>
+
+                            <div class="row">
+                                <div class="col-4">
+                                    <fieldset>
+                                        <legend id="fieldCant">Cantidad</legend>
+                                        <div class="form-group">
+                                            @Html.LabelFor(Model => Model.ValorDeclaradoDetalle.IdUnidadMedida, new { @class = "control-label" })
+                                            <div>
+                                                @Html.DropDownList("IdUnidadMedida", null, "Seleccione...", htmlAttributes: new { @class = "form-control IdUnidadMedidaDetalle", @onchange = "cambioUnidadMedida()" })
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group">
+                                            @Html.LabelFor(Model => Model.ValorDeclaradoDetalle.Cantidad, new { @class = "control-label" })
+                                            <div>
+                                                @Html.TextBoxFor(m => m.ValorDeclaradoDetalle.Cantidad, new { @onchange = "completaTipoCambio(this)", @class = "form-control CantidadDetalle formatoEntero", maxlength = 12 })
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+
+                                <div class="col-4">
+                                    <fieldset class="fieldsetIgual">
+                                        <legend id="fieldImp">Importe</legend>
+                                        <div class="form-group">
+                                            @Html.LabelFor(Model => Model.ValorDeclaradoDetalle.ImporteValorDeclarado, new { @class = "control-label" })
+                                            <div>
+                                                <span id="lblSimbolo" style="display:inline-block">S/</span>
+                                                <span style="display:inline-block">
+                                                    @Html.TextBoxFor(m => m.ValorDeclaradoDetalle.ImporteValorDeclarado, new { @onchange = "completaTipoCambio(this)", @class = "form-control formatoMonto", maxlength = 12 })
+                                                </span>
+                                                
+                                            </div>
+                                        </div>
+                                    </fieldset>
+                                </div>
+                                <div class="col-4">
+                                    <fieldset class="fieldsetIgual">
+                                        <legend id="fieldDet">Detalle</legend>
+                                       
+                                        <!--
+                                        <div class="btn btn-success ico-subir" id="subir2" onclick="jsLeerExcel()" style="padding-left: 30px;">subir</div>
+                                        <input type="file" id="IdFileDetalle" style="display:none" />
+                                        -->
+                                        
+                                        <input type="file" id="IdFileDetalle" onchange="comprueba_extension()" style="width: 140px;"/>
+                                        <button type="button" class="btn btn-default" onclick="jsLeerExcel()" hidden>Enviar</button>
+      
+
+                                        <button type="button" class="btn btn-default" title="Detalle de Registros" onclick="openModalVDDC()" id="IdVerDetalle">Ver Detalle</button>
+                                    </fieldset>
+                                </div>
+                            </div>
+                            
+
+
+                            <div class="form-group pull-right">
+                                <button type="button" class="btn btn-primary" id="idModificar">Modificar</button>
+                                <div class="form-group pull-right">
+                                    <button type="button" class="btn btn-primary" id="idAgregar">Agregar</button>
+                                </div>
+                            </div>
+
+                            <table class="table table-responsive" id="tbValorDeclaradoDetalle" style="width: 100%;">
+                                <thead>
+                                    <tr>
+                                        <th>
+                                            @Html.LabelFor(m => m.ValorDeclaradoDetalle.IdValorDeclaradoDetalle)
+                                        </th>
+                                        <th>
+                                            @Html.LabelFor(m => m.ValorDeclaradoDetalle.IdTipoValorDeclarado)
+                                        </th>
+                                        <th>
+                                            @Html.LabelFor(m => m.ValorDeclaradoDetalle.TipoValorDeclaradoDesc)
+                                        </th>
+
+                                        <th class="unidadMedida">
+                                            @Html.LabelFor(m => m.ValorDeclaradoDetalle.IdUnidadMedida)
+                                        </th>
+                                        <th>
+                                            @Html.LabelFor(m => m.ValorDeclaradoDetalle.UnidadMedidaDesc)
+                                        </th>
+                                        <th class="numeric-right">
+                                            @Html.LabelFor(m => m.ValorDeclaradoDetalle.Cantidad)
+                                        </th>
+                                        <th class="text-center">
+                                            @Html.LabelFor(m => m.ValorDeclaradoDetalle.ImporteValorDeclarado)
+                                        </th>
+                                        <th>
+                                            @Html.LabelFor(m => m.ValorDeclaradoDetalle.IdMoneda)
+                                        </th>
+                                        <th>
+                                            @Html.LabelFor(m => m.ValorDeclaradoDetalle.MonedaDesc)
+                                        </th>
+                                        <th>
+                                            @Html.LabelFor(m => m.ValorDeclaradoDetalle.FlagEdicion)
+                                        </th>
+                                        <th>
+                                            Opciones
+                                           <!-- Editar-->
+                                        </th>
+                                        <!--
+                                        <th>
+                                            Eliminar
+                                        </th>
+                                            -->
+                                    </tr>
+                                </thead>
+                                <tbody></tbody>
+                            </table>
+                        </fieldset>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </section>
+
+    }
+    <div class="alert alert-warning" role="alert" id="divError">
+
+    </div>
+    <div class="form-group pull-right">
+        <input type="hidden" name="MaxSizeArchivo" id="MaxSizeArchivo" value="@ViewBag.MaxSizeArchivo" />
+        <button type="submit" class="btn btn-primary ico-grabar">Guardar</button>
+         <button type="button" class="btn btn-secondary ico-cancelar" data-dismiss="modal">Cancelar</button>
+    </div>
+
+</section>
+}
+
+    @*@Html.ActionLink("Descarga de archivo", "DescargarArchivo", "ValorDeclarado",
+        new { IdConstante = "Guardar" })*@
+
+
+<script>
+
+    
+</script>
+

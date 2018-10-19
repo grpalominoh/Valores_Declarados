@@ -1,0 +1,90 @@
+﻿@model SiniestrosSeguros.DTO.ModelViews.ValorDeclarado.ValorDeclaradoModalModelView.VDDCModalTrabajadorView
+
+@using System.Configuration
+
+@{
+    ViewBag.Title = "Valor Declarado Complemento";
+}
+
+
+<script src="~/Scripts/ValorDeclarado/CRUD_VDDC_TRAB.js?version=@ConfigurationManager.AppSettings["version"].ToString()"></script>
+
+
+<div class="alert alert-danger" role="alert" id="divErrorComplemento"> </div>
+@Html.Hidden("informe_IdValorDeclaradoDetalle", (int?)ViewBag.ValorDeclaradoDetalle_IdValorDeclaradoDetalle)
+@Html.Hidden("IdTipoValorDeclarado", (int?)ViewBag.IdTipoValorDeclarado)
+
+<section>
+    <div id="lstFiltrosEvaluar">
+        <div class="form-group">
+            <div class="form-horizontal">
+                <fieldset>
+                    <legend>General</legend>
+
+                    <table class="table table-responsive" id="tbValorDeclaradoDetalleComplemento" style="width:100%">
+                        <thead>
+                            <tr>
+                                <th>
+                                    @Html.LabelFor(model => model.Nombre)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.ApellidoPaterno)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.ApellidoMaterno)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.DNI)
+                                </th>
+                                <th class="text-center">
+                                    @Html.LabelFor(model => model.FechaNacimiento)
+                                </th>
+                                <th class="text-center">
+                                    @Html.LabelFor(model => model.FechaIngreso)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.idCargo)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.cargo)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.idArea)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.area)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.idNivelRiesgo)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.riesgo)
+                                </th>
+                                <th class="text-center">
+                                    @Html.LabelFor(model => model.idTipoPlanilla)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.planilla)
+                                </th>
+                                <th>
+                                    @Html.LabelFor(model => model.RemuneracionMensual)
+                                </th>
+                                <th  >
+                                    @Html.LabelFor(model => model.Graticiacion)
+                                </th>
+                                <th  >
+                                    @Html.LabelFor(model => model.SubvencionMensual)
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </fieldset>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+

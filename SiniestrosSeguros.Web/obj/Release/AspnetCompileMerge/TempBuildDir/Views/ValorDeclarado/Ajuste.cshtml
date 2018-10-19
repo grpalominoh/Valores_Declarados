@@ -1,0 +1,101 @@
+﻿@model SiniestrosSeguros.DTO.ModelViews.ValorDeclarado.AjusteValorDeclaradoModelView.AjusteValorDeclaradoModalModelView
+@using System.Configuration
+@{
+    ViewBag.Title = "Ajustar Valor Declarado";
+}
+<script src="~/Scripts/ValorDeclarado/Ajuste.js?version=@ConfigurationManager.AppSettings["version"].ToString()"></script>
+ 
+@*<h2>@ViewBag.Title</h2>*@
+@Html.Hidden("IdValorDeclarado")
+@Html.Hidden("IdTipoValorDeclaradoDetalle")
+@Html.Hidden("Afecta")
+@Html.Hidden("edit")
+<div id="seccionDetalle">
+    <table class="table table-responsive" id="tbTipoValorDeclaradoDetalle" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    @Html.Label("Seleccione")
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoValorDeclaradoModelView.TipoValorDeclarado)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoValorDeclaradoModelView.Moneda)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoValorDeclaradoModelView.ImporteReal)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoValorDeclaradoModelView.ImporteAjustado)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoValorDeclaradoModelView.UnidadMedida)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoValorDeclaradoModelView.CantidadReal)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoValorDeclaradoModelView.CantidadAjustada)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoValorDeclaradoModelView.TipoRegistro)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoValorDeclaradoModelView.Estado)
+                </th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+</div>
+
+<br />
+
+<div id="seccionDisgregacion">
+    <table class="table table-responsive" id="tbTipoValorDeclaradoDisgregadoPoliza" style="width:100%">
+        <thead>
+            <tr>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoPolizaModelView.IdValorDeclaradoDetalleDisgregado)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoPolizaModelView.RamoPoliza)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoPolizaModelView.TipoPoliza)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoPolizaModelView.Moneda)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoPolizaModelView.ImporteValorDeclarado)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoPolizaModelView.ImporteAjustado)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoPolizaModelView.UnidadMedida)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoPolizaModelView.Cantidad)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoPolizaModelView.CantidadAjustada)
+                </th>
+                <th>
+                    @Html.LabelFor(m => m.TablaTipoPolizaModelView.Estado)
+                </th>
+                <th>
+
+                </th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+
+    <div class="form-group pull-right">
+        <button type="button" class="btn btn-secondary ico-cancelar" data-dismiss="modal">Cancelar</button>
+    </div>
+
+</div>

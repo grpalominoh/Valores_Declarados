@@ -1,0 +1,31 @@
+﻿<script>
+
+    function jsLeerExcel() {
+        var xhr = new XMLHttpRequest();
+        var fd = new FormData();
+        fd.append("File", document.getElementById("File").files[0]);
+
+        $.ajax({
+            url: "LeerExcel",
+            data: fd,
+            processData: false,
+            contentType: false,
+            type: 'POST',
+            success: function (data) {
+                alert(data);
+            },
+            failure: function (data) {
+                alert(data);
+            },
+            error: function (data) {
+                alert(data);
+            }
+            });
+    }
+</script>
+    <h5>Prueba leer excel</h5>
+    <input type="file" id="File" />
+    <button type="button" onclick="jsLeerExcel()">Enviar</button>
+
+
+<a href="EscribeExcel">Prueba generar excel</a>

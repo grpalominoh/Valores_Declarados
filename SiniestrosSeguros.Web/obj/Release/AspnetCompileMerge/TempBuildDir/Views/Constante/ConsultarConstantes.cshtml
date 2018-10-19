@@ -1,0 +1,47 @@
+﻿@model SiniestrosSeguros.DTO.ModelViews.Constantes.VerConstanteModelView
+@using System.Configuration;
+@{
+    ViewBag.Title = "Constantes";
+}
+
+
+
+<script src="~/Scripts/Constante/ConsultarConstantes.js?version=@ConfigurationManager.AppSettings["version"].ToString()"></script>
+@*<h2>@ViewBag.Title</h2>*@
+
+<section class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading clearfix">
+            <h3 class="panel-title pull-left">Constantes</h3>
+        </div>
+        <div class="panel-body">
+
+            <div class="table-responsive">
+                <table class="table table-striped" id="tbConstantePadre">
+                    <thead>
+                        <tr>
+                            <th class="th-chk-select">
+                                @Html.Label("Seleccione")
+                            </th>
+                            <th class="th-chk-CConstantes">
+                                @Html.LabelFor(m => m.Constante)
+                            </th>
+                            <th class="th-chk-CConstantes">
+                                @Html.LabelFor(m => m.Descripcion)
+                            </th>
+                            <th class="th-chk-CConstantes">
+                                @Html.LabelFor(m => m.CodigoAgrupador)
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+            <br />
+
+            <div id="ConsultarHijoConstante">
+
+            </div>
+        </div>
+    </div>
+</section>

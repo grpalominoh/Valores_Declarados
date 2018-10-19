@@ -1,0 +1,50 @@
+﻿@model List<SiniestrosSeguros.DTO.ModelViews.TiposValoresDeclarados.VerTipoValorDeclaradoModelView>
+
+@{
+    ViewBag.Title = "Consulta de Tipo de Valor Declarado";
+}
+
+@Scripts.Render("~/Scripts/TipoValorDeclarado/Index.js")
+
+@*<h2>@ViewBag.Title</h2>*@
+
+<section class="container">
+    <div class="panel panel-primary">
+        <div class="panel-heading clearfix">
+            <h3 class="panel-title pull-left">Consulta de tipo de valor declarado</h3>
+        </div>
+        <div class="panel-body">
+            <div class="pull-right">
+                @Html.ActionLink("Crear", "Create", "TipoValorDeclarado", new { @class = "btn btn-primary InModal ico-create", @title = "Registro de Tipo de Valor Declarado", @Id = "crear1"})
+            </div>
+            <table class="table table-responsive table-striped" id="tbTipoValorDeclarado" style="width:100%;">
+                <thead>
+                    <tr>
+                        <th>
+                            @Html.LabelFor(m => m.FirstOrDefault().Nombre)
+                        </th>
+                        <th>
+                            @Html.LabelFor(m => m.FirstOrDefault().Descripcion)
+                        </th>
+                        <th class="text-center">
+                            @Html.LabelFor(m => m.FirstOrDefault().AfectaImporte)
+                        </th>
+                        <th class="text-center">
+                            @Html.LabelFor(m => m.FirstOrDefault().AfectaCantidad)
+                        </th>
+                        <th class="text-center">
+                            @Html.LabelFor(m => m.FirstOrDefault().PermiteCargaDetalle)
+                        </th>
+                        <th>
+                            @Html.LabelFor(m => m.FirstOrDefault().Estado)
+                        </th>
+                        <th>
+                            <label>Opción</label>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+</div>
+</div>
+</section>

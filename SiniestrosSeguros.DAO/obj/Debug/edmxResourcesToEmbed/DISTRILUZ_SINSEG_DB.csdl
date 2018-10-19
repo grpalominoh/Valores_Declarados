@@ -1,0 +1,928 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="SegurosDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="SegurosDBEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="SP_D_ArchivoValorDeclaradoPorId">
+      <Parameter Name="IdArchivo" Mode="In" Type="Int32" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_D_ValorDeclaradoDetalleDisgregado">
+      <Parameter Name="IdValorDeclaradoDetalleDisgregado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_D_ValorDeclaradoDetallePorId">
+      <Parameter Name="IdValorDeclaradoDetalle" Mode="In" Type="Int32" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_I_ArchivoValorDeclarado">
+      <Parameter Name="IdValorDeclarado" Mode="In" Type="Int32" />
+      <Parameter Name="IdArchivo" Mode="InOut" Type="Int32" />
+      <Parameter Name="NombreOrigen" Mode="In" Type="String" />
+      <Parameter Name="NombreAsignado" Mode="In" Type="String" />
+      <Parameter Name="Ruta" Mode="In" Type="String" />
+      <Parameter Name="Formato" Mode="In" Type="String" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_I_Constante">
+      <Parameter Name="IdPadre" Mode="In" Type="Int16" />
+      <Parameter Name="Constante" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="CodigoAgrupador" Mode="In" Type="String" />
+      <Parameter Name="Orden" Mode="In" Type="Int16" />
+      <Parameter Name="Tag" Mode="In" Type="String" />
+      <Parameter Name="IdEstado" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="SP_I_DivisionPoliza">
+      <Parameter Name="IdTipoPoliza" Mode="In" Type="Int16" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="Abreviatura" Mode="In" Type="String" />
+      <Parameter Name="AplicaProveedor" Mode="In" Type="Boolean" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_I_TipoValorDeclarado">
+      <Parameter Name="IdTipoValorDeclarado" Mode="InOut" Type="Int16" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="AfectaImporte" Mode="In" Type="Int16" />
+      <Parameter Name="AfectaCantidad" Mode="In" Type="Int16" />
+      <Parameter Name="PermiteCargaDetalle" Mode="In" Type="Int16" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_I_ValorDeclarado">
+      <Parameter Name="IdValorDeclarado" Mode="InOut" Type="Int16" />
+      <Parameter Name="IdEmpresa" Mode="In" Type="Int16" />
+      <Parameter Name="FechaVigenciaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaVigenciaTermino" Mode="In" Type="DateTime" />
+      <Parameter Name="IdMoneda" Mode="In" Type="Int16" />
+      <Parameter Name="TipoCambio" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SP_I_ValorDeclaradoDetalle">
+      <Parameter Name="IdValorDeclaradoDetalle" Mode="InOut" Type="Int32" />
+      <Parameter Name="IdValorDeclarado" Mode="In" Type="Int32" />
+      <Parameter Name="IdTipoValorDeclarado" Mode="In" Type="Int16" />
+      <Parameter Name="IdUnidadMedida" Mode="In" Type="Int16" />
+      <Parameter Name="Cantidad" Mode="In" Type="Decimal" />
+      <Parameter Name="ImporteValorDeclarado" Mode="In" Type="Decimal" />
+      <Parameter Name="IdMoneda" Mode="In" Type="Int16" />
+      <Parameter Name="IdTipoRegistro" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_I_ValorDeclaradoDetalleComplemento">
+      <Parameter Name="IdValorDeclaradoDetalleComplemento" Mode="InOut" Type="Int32" />
+      <Parameter Name="IdValorDeclaradoDetalle" Mode="In" Type="Int32" />
+      <Parameter Name="IdTipoBien" Mode="In" Type="Int16" />
+      <Parameter Name="IdElementoElectrico" Mode="In" Type="Int32" />
+      <Parameter Name="IdTrabajador" Mode="In" Type="Int32" />
+      <Parameter Name="IdVehiculo" Mode="In" Type="Int32" />
+      <Parameter Name="IdInstalacion" Mode="In" Type="Int32" />
+      <Parameter Name="IdCentroCosto" Mode="In" Type="Int16" />
+      <Parameter Name="IdArea" Mode="In" Type="Int16" />
+      <Parameter Name="IdCargo" Mode="In" Type="Int16" />
+      <Parameter Name="IdUUNN" Mode="In" Type="Int16" />
+      <Parameter Name="IdTipoPlanilla" Mode="In" Type="Int16" />
+      <Parameter Name="IdNivelRiesgo" Mode="In" Type="Int16" />
+      <Parameter Name="ValorDeclarado" Mode="In" Type="Decimal" />
+      <Parameter Name="ImporteMensual" Mode="In" Type="Decimal" />
+      <Parameter Name="ImporteGratificacion" Mode="In" Type="Decimal" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+      <Parameter Name="NombreOrigen" Mode="In" Type="String" />
+      <Parameter Name="NombreAsignado" Mode="In" Type="String" />
+      <Parameter Name="Ruta" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_I_ValorDeclaradoDetalleDisgregado">
+      <Parameter Name="IdValorDeclaradoDetalle" Mode="In" Type="Int32" />
+      <Parameter Name="IdTipoPoliza" Mode="In" Type="Int16" />
+      <Parameter Name="IdDivisionPoliza" Mode="In" Type="Int16" />
+      <Parameter Name="IdUnidadMedida" Mode="In" Type="Int16" />
+      <Parameter Name="Cantidad" Mode="In" Type="Decimal" />
+      <Parameter Name="IdMoneda" Mode="In" Type="Int16" />
+      <Parameter Name="ImporteValorDeclarado" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_ArchivoValorDeclarado" ReturnType="Collection(SegurosDBModel.SP_S_ArchivoValorDeclarado_Result)">
+      <Parameter Name="IdValorDeclarado" Mode="In" Type="Int32" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_Constante" ReturnType="Collection(SegurosDBModel.SP_S_Constante_Result)">
+      <Parameter Name="IdConstante" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_Constante_Hijo" ReturnType="Collection(SegurosDBModel.SP_S_Constante_Hijo_Result)">
+      <Parameter Name="IdPadre" Mode="In" Type="Int16" />
+      <Parameter Name="Constante" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_Constante_PorCodigoAgrupador" ReturnType="Collection(SegurosDBModel.SP_S_Constante_PorCodigoAgrupador_Result)">
+      <Parameter Name="CodigoAgrupador" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_ConstantePorEstado" ReturnType="Collection(SegurosDBModel.SP_S_ConstantePorEstado_Result)">
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_DevuelveValorDeclarado_PorTipoValorDeclarado" ReturnType="Collection(Int32)">
+      <Parameter Name="IdTipoValorDeclarado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_DivisionPoliza_PorTipoPoliza" ReturnType="Collection(SegurosDBModel.SP_S_DivisionPoliza_PorTipoPoliza_Result)">
+      <Parameter Name="IdTipoPoliza" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_Empresa" ReturnType="Collection(SegurosDBModel.SP_S_Empresa_Result)" />
+    <FunctionImport Name="SP_S_Estado" ReturnType="Collection(SegurosDBModel.SP_S_Estado_Result)" />
+    <FunctionImport Name="SP_S_Marca" ReturnType="Collection(SegurosDBModel.SP_S_Marca_Result)">
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_Modelo" ReturnType="Collection(SegurosDBModel.SP_S_Modelo_Result)">
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_Moneda" ReturnType="Collection(SegurosDBModel.SP_S_Moneda_Result)" />
+    <FunctionImport Name="SP_S_RamoPoliza_PorCodigoAgrupador" ReturnType="Collection(SegurosDBModel.SP_S_RamoPoliza_PorCodigoAgrupador_Result)">
+      <Parameter Name="CodigoAgrupador" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_ReportePersonal" ReturnType="Collection(SegurosDBModel.SP_S_ReportePersonal_Result)">
+      <Parameter Name="IdTipoPoliza" Mode="In" Type="Int16" />
+      <Parameter Name="IdEmpresa" Mode="In" Type="Int16" />
+      <Parameter Name="FechaVigenciaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaVigenciaFin" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_TipoValorDeclarado" ReturnType="Collection(SegurosDBModel.SP_S_TipoValorDeclarado_Result)" />
+    <FunctionImport Name="SP_S_TipoValorDeclarado_PorIdEstado" ReturnType="Collection(SegurosDBModel.SP_S_TipoValorDeclarado_PorIdEstado_Result)">
+      <Parameter Name="IdEstado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_TipoValorDeclarado_PorIdTipoValorDeclarado" ReturnType="Collection(SegurosDBModel.SP_S_TipoValorDeclarado_PorIdTipoValorDeclarado_Result)">
+      <Parameter Name="IdTipoValorDeclarado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_TipoValorDeclarado_PorValorDeclarado" ReturnType="Collection(SegurosDBModel.SP_S_TipoValorDeclarado_PorValorDeclarado_Result)">
+      <Parameter Name="IdValorDeclarado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_Unidad_Medida" ReturnType="Collection(SegurosDBModel.SP_S_Unidad_Medida_Result)" />
+    <FunctionImport Name="SP_S_UnidadNegocio" ReturnType="Collection(SegurosDBModel.SP_S_UnidadNegocio_Result)">
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_ValorDeclarado" ReturnType="Collection(SegurosDBModel.SP_S_ValorDeclarado_Result)">
+      <Parameter Name="IdEmpresa" Mode="In" Type="Int16" />
+      <Parameter Name="FechaIni" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_ValorDeclaradoDetalle" ReturnType="Collection(SegurosDBModel.SP_S_ValorDeclaradoDetalle_Result)">
+      <Parameter Name="IdValorDeclarado" Mode="In" Type="Int32" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_ValorDeclaradoDetalle_PorIdValorDeclarado" ReturnType="Collection(SegurosDBModel.SP_S_ValorDeclaradoDetalle_PorIdValorDeclarado_Result)">
+      <Parameter Name="IdValorDeclarado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_ValorDeclaradoDetalle_PorTipoValorDeclarado_ValorDeclarado" ReturnType="Collection(SegurosDBModel.SP_S_ValorDeclaradoDetalle_PorTipoValorDeclarado_ValorDeclarado_Result)">
+      <Parameter Name="IdValorDeclarado" Mode="In" Type="Int32" />
+      <Parameter Name="IdTipoValorDeclarado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_ValorDeclaradoDetalleDisgregado_PorIdValorDeclarado" ReturnType="Collection(SegurosDBModel.SP_S_ValorDeclaradoDetalleDisgregado_PorIdValorDeclarado_Result)">
+      <Parameter Name="IdValorDeclarado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_ValorDeclaradoDetalleDisgregado_PorIdValorDeclaradoDetalle" ReturnType="Collection(SegurosDBModel.SP_S_ValorDeclaradoDetalleDisgregado_PorIdValorDeclaradoDetalle_Result)">
+      <Parameter Name="IdValorDeclaradoDetalle" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_Vehiculo" ReturnType="Collection(SegurosDBModel.SP_S_Vehiculo_Result)">
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_U_AjustarValoresDeclarados">
+      <Parameter Name="IdValorDeclaradoDetalleDisgregado" Mode="In" Type="Int32" />
+      <Parameter Name="CantidadAjustada" Mode="In" Type="Decimal" />
+      <Parameter Name="ImporteAjustado" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SP_U_Constante">
+      <Parameter Name="IdConstante" Mode="In" Type="Int16" />
+      <Parameter Name="Constante" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="Orden" Mode="In" Type="Int16" />
+      <Parameter Name="Tag" Mode="In" Type="String" />
+      <Parameter Name="IdEstado" Mode="In" Type="Boolean" />
+    </FunctionImport>
+    <FunctionImport Name="SP_U_TipoPoliza">
+      <Parameter Name="IdDivisionPoliza" Mode="In" Type="Int16" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="Abreviatura" Mode="In" Type="String" />
+      <Parameter Name="AplicaProveedor" Mode="In" Type="Boolean" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_U_TipoValorDeclarado">
+      <Parameter Name="IdTipoValorDeclarado" Mode="In" Type="Int16" />
+      <Parameter Name="Nombre" Mode="In" Type="String" />
+      <Parameter Name="Descripcion" Mode="In" Type="String" />
+      <Parameter Name="AfectaImporte" Mode="In" Type="Int16" />
+      <Parameter Name="AfectaCantidad" Mode="In" Type="Int16" />
+      <Parameter Name="PermiteCargaDetalle" Mode="In" Type="Int16" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_U_ValorDeclarado">
+      <Parameter Name="IdValorDeclarado" Mode="In" Type="Int32" />
+      <Parameter Name="IdEmpresa" Mode="In" Type="Int16" />
+      <Parameter Name="FechaIni" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+      <Parameter Name="IdMoneda" Mode="In" Type="Int16" />
+      <Parameter Name="TipoCambio" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SP_U_ValorDeclarado_CamposAjustados">
+      <Parameter Name="IdValorDeclarado" Mode="In" Type="Int32" />
+      <Parameter Name="IdValorDeclaradoDetalle" Mode="In" Type="Int32" />
+      <Parameter Name="Afecta" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_U_ValorDeclaradoDetalle">
+      <Parameter Name="IdValorDeclaradoDetalle" Mode="In" Type="Int32" />
+      <Parameter Name="TipoValorDeclarado" Mode="In" Type="Int16" />
+      <Parameter Name="UnidadMedida" Mode="In" Type="Int16" />
+      <Parameter Name="IdMoneda" Mode="In" Type="Int16" />
+      <Parameter Name="Cantidad" Mode="In" Type="Decimal" />
+      <Parameter Name="ImporteValorDeclarado" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SP_U_ValorDeclaradoDetalleComplementoPorEstado">
+      <Parameter Name="IdValorDeclaradoDetalle" Mode="In" Type="Int32" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="ValorDeclaradoAutorizacion_Insertar_pa">
+      <Parameter Name="P_IdValorDeclarado" Mode="In" Type="Int32" />
+      <Parameter Name="P_IdEmpresa" Mode="In" Type="Int16" />
+      <Parameter Name="P_IdProceso" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_NotificarAutorizacion" ReturnType="Collection(String)">
+      <Parameter Name="IdValorDeclarado" Mode="In" Type="Int32" />
+      <Parameter Name="IdProceso" Mode="In" Type="Int32" />
+      <Parameter Name="Dominio" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_Area" ReturnType="Collection(SegurosDBModel.SP_S_Area_Result)">
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_Persona" ReturnType="Collection(SegurosDBModel.SP_S_Persona_Result)">
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_I_Persona">
+      <Parameter Name="IdPersona" Mode="InOut" Type="Int32" />
+      <Parameter Name="Nombres" Mode="In" Type="String" />
+      <Parameter Name="ApellidoPaterno" Mode="In" Type="String" />
+      <Parameter Name="ApellidoMaterno" Mode="In" Type="String" />
+      <Parameter Name="Apellidos" Mode="In" Type="String" />
+      <Parameter Name="IdTipoIdentidad" Mode="In" Type="Int16" />
+      <Parameter Name="NroIdentidad" Mode="In" Type="String" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_trabajador" ReturnType="Collection(SegurosDBModel.SP_S_trabajador_Result)">
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_I_Trabajador">
+      <Parameter Name="IdTrabajador" Mode="InOut" Type="Int32" />
+      <Parameter Name="IdPersona" Mode="In" Type="Int32" />
+      <Parameter Name="IdArea" Mode="In" Type="Int16" />
+      <Parameter Name="IdEmpresa" Mode="In" Type="Int16" />
+      <Parameter Name="IdUnidadNegocio" Mode="In" Type="Int16" />
+      <Parameter Name="IdCentroServicio" Mode="In" Type="Int16" />
+      <Parameter Name="EsPlanillado" Mode="In" Type="Int16" />
+      <Parameter Name="IdCargo" Mode="In" Type="Int16" />
+      <Parameter Name="IdClasificacionCargo" Mode="In" Type="Int16" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="CodigoSAP" Mode="In" Type="String" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+      <Parameter Name="FechaIngreso" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_U_PERSONA">
+      <Parameter Name="IdPersona" Mode="InOut" Type="Int32" />
+      <Parameter Name="Nombres" Mode="In" Type="String" />
+      <Parameter Name="ApellidoPaterno" Mode="In" Type="String" />
+      <Parameter Name="ApellidoMaterno" Mode="In" Type="String" />
+      <Parameter Name="Apellidos" Mode="In" Type="String" />
+      <Parameter Name="IdTipoIdentidad" Mode="In" Type="Int16" />
+      <Parameter Name="NroIdentidad" Mode="In" Type="String" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_U_TRABAJADOR">
+      <Parameter Name="IdTrabajador" Mode="InOut" Type="Int32" />
+      <Parameter Name="IdPersona" Mode="In" Type="Int32" />
+      <Parameter Name="IdArea" Mode="In" Type="Int16" />
+      <Parameter Name="IdEmpresa" Mode="In" Type="Int16" />
+      <Parameter Name="IdUnidadNegocio" Mode="In" Type="Int16" />
+      <Parameter Name="IdCentroServicio" Mode="In" Type="Int16" />
+      <Parameter Name="EsPlanillado" Mode="In" Type="Int16" />
+      <Parameter Name="IdCargo" Mode="In" Type="Int16" />
+      <Parameter Name="IdClasificacionCargo" Mode="In" Type="Int16" />
+      <Parameter Name="Email" Mode="In" Type="String" />
+      <Parameter Name="CodigoSAP" Mode="In" Type="String" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+      <Parameter Name="FechaIngreso" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_U_ValorDeclaradoAutorizacion">
+      <Parameter Name="IdClaveUnica" Mode="In" Type="Guid" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_PendienteAutorizacion" ReturnType="Collection(SegurosDBModel.SP_S_PendienteAutorizacion_Result)">
+      <Parameter Name="IdValorDeclarado" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_U_ValorDeclarado_Estado">
+      <Parameter Name="IdValorDeclarado" Mode="In" Type="Int32" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_ValorDeclaradoDetalleComplemento" ReturnType="Collection(SegurosDBModel.SP_S_ValorDeclaradoDetalleComplemento_Result)">
+      <Parameter Name="IdValorDeclaradoDetalle" Mode="In" Type="Int32" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="sp_i_personacomplemento">
+      <Parameter Name="idPersona" Mode="In" Type="Int32" />
+      <Parameter Name="sexo" Mode="In" Type="Int32" />
+      <Parameter Name="idGradoInstruccion" Mode="In" Type="Int32" />
+      <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_u_personacomplemento">
+      <Parameter Name="idPersona" Mode="In" Type="Int32" />
+      <Parameter Name="sexo" Mode="In" Type="Int32" />
+      <Parameter Name="idGradoInstruccion" Mode="In" Type="Int32" />
+      <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_ValorDeclaradoDetalleComplementoTrabajador" ReturnType="Collection(SegurosDBModel.SP_S_ValorDeclaradoDetalleComplementoTrabajador_Result)">
+      <Parameter Name="IdValorDeclaradoDetalle" Mode="In" Type="Int32" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="sp_s_buscar_personacomplemento_codigo" ReturnType="Collection(Int32)">
+      <Parameter Name="idPersona" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_I_Vehiculo">
+      <Parameter Name="IdVehiculo" Mode="InOut" Type="Int32" />
+      <Parameter Name="IdEmpresa" Mode="In" Type="Int16" />
+      <Parameter Name="IdUnidadNegocio" Mode="In" Type="Int16" />
+      <Parameter Name="IdCentroCosto" Mode="In" Type="Int16" />
+      <Parameter Name="IdTipoVehiculo" Mode="In" Type="Int16" />
+      <Parameter Name="IdMarca" Mode="In" Type="Int16" />
+      <Parameter Name="IdModelo" Mode="In" Type="Int32" />
+      <Parameter Name="PlacaAnterior" Mode="In" Type="String" />
+      <Parameter Name="Placa" Mode="In" Type="String" />
+      <Parameter Name="SerieCarroceria" Mode="In" Type="String" />
+      <Parameter Name="SerieMotor" Mode="In" Type="String" />
+      <Parameter Name="Clase" Mode="In" Type="String" />
+      <Parameter Name="AnoFabricado" Mode="In" Type="Int16" />
+      <Parameter Name="IdColor" Mode="In" Type="Int16" />
+      <Parameter Name="NroAsientos" Mode="In" Type="Int16" />
+      <Parameter Name="TimonCambiado" Mode="In" Type="Int16" />
+      <Parameter Name="IdMoneda" Mode="In" Type="Int16" />
+      <Parameter Name="ValorComercial" Mode="In" Type="Decimal" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+      <Parameter Name="dtFechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="dtFechaTermino" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_U_Vehiculo">
+      <Parameter Name="IdVehiculo" Mode="In" Type="Int32" />
+      <Parameter Name="IdEmpresa" Mode="In" Type="Int16" />
+      <Parameter Name="IdUnidadNegocio" Mode="In" Type="Int16" />
+      <Parameter Name="IdCentroCosto" Mode="In" Type="Int16" />
+      <Parameter Name="IdTipoVehiculo" Mode="In" Type="Int16" />
+      <Parameter Name="IdMarca" Mode="In" Type="Int16" />
+      <Parameter Name="IdModelo" Mode="In" Type="Int32" />
+      <Parameter Name="PlacaAnterior" Mode="In" Type="String" />
+      <Parameter Name="Placa" Mode="In" Type="String" />
+      <Parameter Name="SerieCarroceria" Mode="In" Type="String" />
+      <Parameter Name="SerieMotor" Mode="In" Type="String" />
+      <Parameter Name="Clase" Mode="In" Type="String" />
+      <Parameter Name="AnoFabricado" Mode="In" Type="Int16" />
+      <Parameter Name="IdColor" Mode="In" Type="Int16" />
+      <Parameter Name="NroAsientos" Mode="In" Type="Int16" />
+      <Parameter Name="TimonCambiado" Mode="In" Type="Int16" />
+      <Parameter Name="IdMoneda" Mode="In" Type="Int16" />
+      <Parameter Name="ValorComercial" Mode="In" Type="Decimal" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+      <Parameter Name="dtFechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="dtFechaTermino" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_BUSCAR_PERSONA_POR_ESTADO_Y_DNI" ReturnType="Collection(SegurosDBModel.SP_S_BUSCAR_PERSONA_POR_ESTADO_Y_DNI_Result)">
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+      <Parameter Name="DNI" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_trabajador_POR_ID_PERSONA" ReturnType="Collection(SegurosDBModel.SP_S_trabajador_POR_ID_PERSONA_Result)">
+      <Parameter Name="IDPERSONA" Mode="In" Type="Int32" />
+      <Parameter Name="IDESTADO" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_i_personacomplemento1">
+      <Parameter Name="idPersona" Mode="In" Type="Int32" />
+      <Parameter Name="sexo" Mode="In" Type="Int32" />
+      <Parameter Name="idGradoInstruccion" Mode="In" Type="Int32" />
+      <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="sp_s_buscar_personacomplemento_codigo1" ReturnType="Collection(Int32)">
+      <Parameter Name="idPersona" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_u_personacomplemento1">
+      <Parameter Name="idPersona" Mode="In" Type="Int32" />
+      <Parameter Name="sexo" Mode="In" Type="Int32" />
+      <Parameter Name="idGradoInstruccion" Mode="In" Type="Int32" />
+      <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_I_ValorDeclaradoDetalleComplemento_trabajador_excel_writer">
+      <Parameter Name="IdValorDeclaradoDetalleComplemento" Mode="InOut" Type="Int32" />
+      <Parameter Name="IdValorDeclaradoDetalle" Mode="In" Type="Int32" />
+      <Parameter Name="IdTipoBien" Mode="In" Type="Int16" />
+      <Parameter Name="IdElementoElectrico" Mode="In" Type="Int32" />
+      <Parameter Name="IdTrabajador" Mode="In" Type="Int32" />
+      <Parameter Name="IdVehiculo" Mode="In" Type="Int32" />
+      <Parameter Name="IdInstalacion" Mode="In" Type="Int32" />
+      <Parameter Name="IdCentroCosto" Mode="In" Type="Int16" />
+      <Parameter Name="IdArea" Mode="In" Type="Int16" />
+      <Parameter Name="IdCargo" Mode="In" Type="Int16" />
+      <Parameter Name="IdUUNN" Mode="In" Type="Int16" />
+      <Parameter Name="IdTipoPlanilla" Mode="In" Type="Int16" />
+      <Parameter Name="IdNivelRiesgo" Mode="In" Type="Int16" />
+      <Parameter Name="ValorDeclarado" Mode="In" Type="Decimal" />
+      <Parameter Name="ImporteMensual" Mode="In" Type="Decimal" />
+      <Parameter Name="ImporteGratificacion" Mode="In" Type="Decimal" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+      <Parameter Name="NombreOrigen" Mode="In" Type="String" />
+      <Parameter Name="NombreAsignado" Mode="In" Type="String" />
+      <Parameter Name="Ruta" Mode="In" Type="String" />
+      <Parameter Name="DNI" Mode="In" Type="String" />
+      <Parameter Name="Nombres" Mode="In" Type="String" />
+      <Parameter Name="ApellidoPaterno" Mode="In" Type="String" />
+      <Parameter Name="ApellidoMaterno" Mode="In" Type="String" />
+      <Parameter Name="FechaNacimiento" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaIngreso" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_I_ValorDeclaradoDetalleComplemento_vehiculo_excel_writer">
+      <Parameter Name="IdValorDeclaradoDetalleComplemento" Mode="InOut" Type="Int32" />
+      <Parameter Name="IdValorDeclaradoDetalle" Mode="In" Type="Int32" />
+      <Parameter Name="IdTipoBien" Mode="In" Type="Int16" />
+      <Parameter Name="IdVehiculo" Mode="In" Type="Int32" />
+      <Parameter Name="IdCentroCosto" Mode="In" Type="Int16" />
+      <Parameter Name="IdArea" Mode="In" Type="Int16" />
+      <Parameter Name="IdCargo" Mode="In" Type="Int16" />
+      <Parameter Name="IdUUNN" Mode="In" Type="Int16" />
+      <Parameter Name="IdTipoPlanilla" Mode="In" Type="Int16" />
+      <Parameter Name="IdNivelRiesgo" Mode="In" Type="Int16" />
+      <Parameter Name="ValorDeclarado" Mode="In" Type="Decimal" />
+      <Parameter Name="ImporteMensual" Mode="In" Type="Decimal" />
+      <Parameter Name="ImporteGratificacion" Mode="In" Type="Decimal" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+      <Parameter Name="NombreOrigen" Mode="In" Type="String" />
+      <Parameter Name="NombreAsignado" Mode="In" Type="String" />
+      <Parameter Name="Ruta" Mode="In" Type="String" />
+      <Parameter Name="IdEmpresa" Mode="In" Type="Int16" />
+      <Parameter Name="IdUnidadNegocio" Mode="In" Type="Int16" />
+      <Parameter Name="IdTipoVehiculo" Mode="In" Type="Int16" />
+      <Parameter Name="IdMarca" Mode="In" Type="Int16" />
+      <Parameter Name="IdModelo" Mode="In" Type="Int32" />
+      <Parameter Name="PlacaAnterior" Mode="In" Type="String" />
+      <Parameter Name="Placa" Mode="In" Type="String" />
+      <Parameter Name="SerieCarroceria" Mode="In" Type="String" />
+      <Parameter Name="SerieMotor" Mode="In" Type="String" />
+      <Parameter Name="Clase" Mode="In" Type="String" />
+      <Parameter Name="AnoFabricado" Mode="In" Type="Int16" />
+      <Parameter Name="IdColor" Mode="In" Type="Int16" />
+      <Parameter Name="NroAsientos" Mode="In" Type="Int16" />
+      <Parameter Name="TimonCambiado" Mode="In" Type="Int16" />
+      <Parameter Name="IdMoneda" Mode="In" Type="Int16" />
+      <Parameter Name="ValorComercial" Mode="In" Type="Decimal" />
+      <Parameter Name="dtFechaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="dtFechaTermino" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_ValorDeclaradoPorId" ReturnType="Collection(SegurosDBModel.SP_S_ValorDeclaradoPorId_Result)">
+      <Parameter Name="IdValorDeclarado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_ValorDeclarado_page_server" ReturnType="Collection(SegurosDBModel.SP_S_ValorDeclarado_page_server_Result)">
+      <Parameter Name="IdEmpresa" Mode="In" Type="Int16" />
+      <Parameter Name="FechaIni" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaFin" Mode="In" Type="DateTime" />
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+      <Parameter Name="iPagina" Mode="In" Type="Int32" />
+      <Parameter Name="iTamaño" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_CentroCosto" ReturnType="Collection(SegurosDBModel.SP_S_CentroCosto_Result)">
+      <Parameter Name="IdEstado" Mode="In" Type="Int16" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_validar_importe_ajustado_y_cantidad_ajustada" ReturnType="Collection(SegurosDBModel.SP_S_validar_importe_ajustado_y_cantidad_ajustada_Result)">
+      <Parameter Name="IdValorDeclaradoDetalleDisgregado" Mode="In" Type="Int32" />
+      <Parameter Name="CantidadAjustada" Mode="In" Type="Decimal" />
+      <Parameter Name="ImporteAjustado" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_ReporteVehiculo" ReturnType="Collection(SegurosDBModel.SP_S_ReporteVehiculo_Result)">
+      <Parameter Name="IdTipoPoliza" Mode="In" Type="Int16" />
+      <Parameter Name="IdEmpresa" Mode="In" Type="Int16" />
+      <Parameter Name="FechaVigenciaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaVigenciaFin" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_ReporteVehiculoDetalle" ReturnType="Collection(SegurosDBModel.SP_S_ReporteVehiculoDetalle_Result)">
+      <Parameter Name="IdEmpresa" Mode="In" Type="Int16" />
+      <Parameter Name="FechaVigenciaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaVigenciaFin" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SP_S_ReportePatrimonial" ReturnType="Collection(SegurosDBModel.SP_S_ReportePatrimonial_Result)">
+      <Parameter Name="IdTipoPoliza" Mode="In" Type="Int16" />
+      <Parameter Name="IdEmpresa" Mode="In" Type="Int16" />
+      <Parameter Name="FechaVigenciaInicio" Mode="In" Type="DateTime" />
+      <Parameter Name="FechaVigenciaFin" Mode="In" Type="DateTime" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SP_S_ArchivoValorDeclarado_Result">
+    <Property Type="Int32" Name="IdArchivo" Nullable="false" />
+    <Property Type="Int32" Name="IdValorDeclarado" Nullable="false" />
+    <Property Type="String" Name="NombreOrigen" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="NombreAsignado" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Ruta" Nullable="true" MaxLength="255" />
+    <Property Type="String" Name="Formato" Nullable="true" MaxLength="10" />
+    <Property Type="Int16" Name="Estado" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_S_Area_Result">
+    <Property Type="Int16" Name="IdArea" Nullable="false" />
+    <Property Type="Int16" Name="IdGerencia" Nullable="true" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="128" />
+    <Property Type="Int16" Name="IdCentroCosto" Nullable="true" />
+    <Property Type="Int16" Name="IdEstado" Nullable="false" />
+    <Property Type="Int16" Name="IdAreaJefatura" Nullable="true" />
+    <Property Type="Int16" Name="IdAreaGenenciaLinea" Nullable="true" />
+    <Property Type="Int16" Name="IdAreaCorporativa" Nullable="true" />
+    <Property Type="String" Name="osLastLogin" Nullable="false" MaxLength="32" />
+    <Property Type="DateTime" Name="osLastDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="osLastApp" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="osFirstLogin" Nullable="false" MaxLength="32" />
+    <Property Type="DateTime" Name="osFirstDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="osFirstApp" Nullable="false" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="SP_S_Constante_Result">
+    <Property Type="Int16" Name="IdConstante" Nullable="false" />
+    <Property Type="Int16" Name="IdPadre" Nullable="true" />
+    <Property Type="String" Name="Constante" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="CodigoAgrupador" Nullable="true" MaxLength="20" />
+    <Property Type="Int16" Name="Orden" Nullable="false" />
+    <Property Type="String" Name="Tag" Nullable="true" MaxLength="32" />
+    <Property Type="Boolean" Name="IdEstado" Nullable="true" />
+    <Property Type="String" Name="ConstantePadre" Nullable="false" MaxLength="1" />
+  </ComplexType>
+  <ComplexType Name="SP_S_Constante_Hijo_Result">
+    <Property Type="Int16" Name="IdConstante" Nullable="false" />
+    <Property Type="Int16" Name="IdPadre" Nullable="true" />
+    <Property Type="String" Name="Constante" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="CodigoAgrupador" Nullable="true" MaxLength="20" />
+    <Property Type="Int16" Name="Orden" Nullable="false" />
+    <Property Type="String" Name="Tag" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="Detalle" Nullable="false" MaxLength="32" />
+  </ComplexType>
+  <ComplexType Name="SP_S_Constante_PorCodigoAgrupador_Result">
+    <Property Type="Int16" Name="IdConstante" Nullable="false" />
+    <Property Type="Int16" Name="IdPadre" Nullable="true" />
+    <Property Type="String" Name="Constante" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="CodigoAgrupador" Nullable="true" MaxLength="20" />
+    <Property Type="Int16" Name="Orden" Nullable="false" />
+    <Property Type="String" Name="Tag" Nullable="true" MaxLength="32" />
+  </ComplexType>
+  <ComplexType Name="SP_S_ConstantePorEstado_Result">
+    <Property Type="Int16" Name="IdConstante" Nullable="false" />
+    <Property Type="Int16" Name="IdPadre" Nullable="true" />
+    <Property Type="String" Name="Constante" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="CodigoAgrupador" Nullable="true" MaxLength="20" />
+    <Property Type="Int16" Name="Orden" Nullable="false" />
+    <Property Type="Int16" Name="IdEstado" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_S_DivisionPoliza_PorTipoPoliza_Result">
+    <Property Type="Int16" Name="IdDivisionPoliza" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="Abreviatura" Nullable="false" MaxLength="32" />
+    <Property Type="Int16" Name="AplicaProveedor" Nullable="false" />
+    <Property Type="Int16" Name="IdEstado" Nullable="false" />
+    <Property Type="String" Name="Detalle" Nullable="false" MaxLength="32" />
+  </ComplexType>
+  <ComplexType Name="SP_S_Empresa_Result">
+    <Property Type="Int16" Name="IdEmpresa" Nullable="false" />
+    <Property Type="String" Name="NombreCorto" Nullable="true" MaxLength="128" />
+  </ComplexType>
+  <ComplexType Name="SP_S_Estado_Result">
+    <Property Type="Int16" Name="IdRegistro" Nullable="false" />
+    <Property Type="String" Name="Detalle" Nullable="false" MaxLength="32" />
+  </ComplexType>
+  <ComplexType Name="SP_S_Marca_Result">
+    <Property Type="Int16" Name="IdMarca" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="Abreviatura" Nullable="false" MaxLength="16" />
+    <Property Type="Int16" Name="IdTipo" Nullable="false" />
+    <Property Type="Int16" Name="IdEstado" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_S_Modelo_Result">
+    <Property Type="Int32" Name="IdModelo" Nullable="false" />
+    <Property Type="Int16" Name="IdMarca" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="Abreviatura" Nullable="true" MaxLength="32" />
+    <Property Type="Int16" Name="IdEstado" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_S_Moneda_Result">
+    <Property Type="Int16" Name="IdMoneda" Nullable="false" />
+    <Property Type="String" Name="Moneda" Nullable="false" MaxLength="16" />
+  </ComplexType>
+  <ComplexType Name="SP_S_PendienteAutorizacion_Result">
+    <Property Type="Int32" Name="IdValorDeclaradoAutorizacion" Nullable="false" />
+    <Property Type="Int32" Name="IdValorDeclarado" Nullable="false" />
+    <Property Type="Int16" Name="IdArea" Nullable="false" />
+    <Property Type="Int16" Name="IdCargo" Nullable="false" />
+    <Property Type="Int32" Name="IdTrabajador" Nullable="false" />
+    <Property Type="Int16" Name="OrdenAutoriza" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_S_RamoPoliza_PorCodigoAgrupador_Result">
+    <Property Type="Int16" Name="IdConstante" Nullable="false" />
+    <Property Type="Int16" Name="IdPadre" Nullable="true" />
+    <Property Type="String" Name="Constante" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Descripcion" Nullable="true" MaxLength="256" />
+    <Property Type="String" Name="CodigoAgrupador" Nullable="true" MaxLength="20" />
+    <Property Type="Int16" Name="Orden" Nullable="false" />
+    <Property Type="String" Name="Tag" Nullable="true" MaxLength="32" />
+  </ComplexType>
+  <ComplexType Name="SP_S_ReportePersonal_Result">
+    <Property Type="String" Name="Empresa" Nullable="true" MaxLength="64" />
+    <Property Type="Decimal" Name="CantidadTrabajadores" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="ImporteTrabajadores" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="CantidadPracticantes" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="ImportePracticantes" Nullable="true" Precision="38" Scale="8" />
+  </ComplexType>
+  <ComplexType Name="SP_S_TipoValorDeclarado_Result">
+    <Property Type="Int16" Name="IdTipoValorDeclarado" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="256" />
+    <Property Type="Int16" Name="AfectaImporte" Nullable="false" />
+    <Property Type="Int16" Name="AfectaCantidad" Nullable="false" />
+    <Property Type="Int16" Name="PermiteCargaDetalle" Nullable="false" />
+    <Property Type="Int16" Name="IdEstado" Nullable="false" />
+    <Property Type="String" Name="EstadoNombre" Nullable="false" MaxLength="32" />
+  </ComplexType>
+  <ComplexType Name="SP_S_TipoValorDeclarado_PorIdEstado_Result">
+    <Property Type="Int16" Name="IdTipoValorDeclarado" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="256" />
+    <Property Type="Int16" Name="AfectaImporte" Nullable="false" />
+    <Property Type="Int16" Name="AfectaCantidad" Nullable="false" />
+    <Property Type="Int16" Name="PermiteCargaDetalle" Nullable="false" />
+    <Property Type="Int16" Name="IdEstado" Nullable="false" />
+    <Property Type="String" Name="EstadoNombre" Nullable="false" MaxLength="32" />
+  </ComplexType>
+  <ComplexType Name="SP_S_TipoValorDeclarado_PorIdTipoValorDeclarado_Result">
+    <Property Type="Int16" Name="IdTipoValorDeclarado" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="256" />
+    <Property Type="Int16" Name="AfectaImporte" Nullable="false" />
+    <Property Type="Int16" Name="AfectaCantidad" Nullable="false" />
+    <Property Type="Int16" Name="PermiteCargaDetalle" Nullable="false" />
+    <Property Type="Int16" Name="IdEstado" Nullable="false" />
+    <Property Type="String" Name="EstadoNombre" Nullable="false" MaxLength="32" />
+  </ComplexType>
+  <ComplexType Name="SP_S_TipoValorDeclarado_PorValorDeclarado_Result">
+    <Property Type="Int16" Name="IdTipoValorDeclarado" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="SP_S_Unidad_Medida_Result">
+    <Property Type="Int16" Name="IdUnidadMedida" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="32" />
+  </ComplexType>
+  <ComplexType Name="SP_S_UnidadNegocio_Result">
+    <Property Type="Int16" Name="IdUnidadNegocio" Nullable="false" />
+    <Property Type="Int16" Name="IdEmpresa" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="CodigoSap" Nullable="false" MaxLength="4" />
+    <Property Type="Int16" Name="EsSede" Nullable="false" />
+    <Property Type="Int16" Name="EsCorporativo" Nullable="false" />
+    <Property Type="Int16" Name="IdEstado" Nullable="false" />
+    <Property Type="String" Name="osLastLogin" Nullable="false" MaxLength="32" />
+    <Property Type="DateTime" Name="osLastDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="osLastApp" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="osFirstLogin" Nullable="false" MaxLength="32" />
+    <Property Type="DateTime" Name="osFirstDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="osFirstApp" Nullable="false" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="SP_S_ValorDeclarado_Result">
+    <Property Type="Int32" Name="IdValorDeclarado" Nullable="false" />
+    <Property Type="Int16" Name="IdEmpresa" Nullable="false" />
+    <Property Type="String" Name="DescEmpresa" Nullable="true" MaxLength="128" />
+    <Property Type="DateTime" Name="FechaVigenciaInicio" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="FechaVigenciaTermino" Nullable="true" Precision="23" />
+    <Property Type="Int16" Name="IdMoneda" Nullable="true" />
+    <Property Type="String" Name="DescMoneda" Nullable="true" MaxLength="16" />
+    <Property Type="Decimal" Name="TipoCambio" Nullable="true" Precision="12" Scale="4" />
+    <Property Type="String" Name="DescEstado" Nullable="false" MaxLength="32" />
+    <Property Type="String" Name="NombreCortoEmpresa" Nullable="true" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="SP_S_ValorDeclaradoDetalle_Result">
+    <Property Type="Int32" Name="IdValorDeclaradoDetalle" Nullable="false" />
+    <Property Type="Int16" Name="IdTipoValorDeclarado" Nullable="false" />
+    <Property Type="String" Name="TipoValorDeclaradoDesc" Nullable="false" MaxLength="64" />
+    <Property Type="Int16" Name="IdMoneda" Nullable="true" />
+    <Property Type="String" Name="MonedaDesc" Nullable="true" MaxLength="16" />
+    <Property Type="Decimal" Name="ImporteValorDeclarado" Nullable="true" Precision="19" />
+    <Property Type="Int16" Name="IdUnidadMedida" Nullable="true" />
+    <Property Type="String" Name="UnidadMedidaDesc" Nullable="true" MaxLength="32" />
+    <Property Type="Decimal" Name="Cantidad" Nullable="true" Precision="12" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="SP_S_ValorDeclaradoDetalle_PorIdValorDeclarado_Result">
+    <Property Type="Int32" Name="IdValorDeclaradoDetalle" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="Moneda" Nullable="false" MaxLength="16" />
+    <Property Type="Decimal" Name="ImporteValorDeclarado" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="ImporteAjustado" Nullable="true" Precision="19" />
+    <Property Type="String" Name="UnidadMedida" Nullable="true" MaxLength="32" />
+    <Property Type="Decimal" Name="Cantidad" Nullable="true" Precision="12" Scale="2" />
+    <Property Type="Decimal" Name="CantidadAjustada" Nullable="true" Precision="12" Scale="2" />
+    <Property Type="String" Name="Afecta" Nullable="true" MaxLength="1" />
+    <Property Type="String" Name="TipoRegistro" Nullable="false" MaxLength="8" />
+    <Property Type="String" Name="Detalle" Nullable="false" MaxLength="32" />
+  </ComplexType>
+  <ComplexType Name="SP_S_ValorDeclaradoDetalle_PorTipoValorDeclarado_ValorDeclarado_Result">
+    <Property Type="Int32" Name="IdValorDeclaradoDetalle" Nullable="false" />
+    <Property Type="Int16" Name="IdUnidadMedida" Nullable="true" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="32" />
+    <Property Type="Decimal" Name="Cantidad" Nullable="true" Precision="12" Scale="2" />
+    <Property Type="Decimal" Name="ImporteValorDeclarado" Nullable="true" Precision="19" />
+    <Property Type="Int16" Name="AfectaImporte" Nullable="false" />
+    <Property Type="Int16" Name="AfectaCantidad" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_S_ValorDeclaradoDetalleDisgregado_PorIdValorDeclarado_Result">
+    <Property Type="Int32" Name="IdValorDeclaradoDetalleDisgregado" Nullable="false" />
+    <Property Type="Int32" Name="IdValorDeclaradoDetalle" Nullable="false" />
+    <Property Type="Int16" Name="IdTipoValorDeclarado" Nullable="false" />
+    <Property Type="String" Name="TipoValorDeclarado" Nullable="false" MaxLength="64" />
+    <Property Type="Int16" Name="IdTipoPoliza" Nullable="false" />
+    <Property Type="String" Name="RamoPoliza" Nullable="true" MaxLength="128" />
+    <Property Type="Int16" Name="IdDivisionPoliza" Nullable="false" />
+    <Property Type="String" Name="DivisionPoliza" Nullable="false" MaxLength="128" />
+    <Property Type="Int16" Name="IdUnidadMedida" Nullable="true" />
+    <Property Type="String" Name="UnidadMedida" Nullable="true" MaxLength="32" />
+    <Property Type="Decimal" Name="Cantidad" Nullable="true" Precision="12" Scale="2" />
+    <Property Type="Int16" Name="IdMoneda" Nullable="true" />
+    <Property Type="String" Name="Moneda" Nullable="false" MaxLength="16" />
+    <Property Type="Decimal" Name="ImporteValorDeclarado" Nullable="true" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="SP_S_ValorDeclaradoDetalleDisgregado_PorIdValorDeclaradoDetalle_Result">
+    <Property Type="Int32" Name="IdValorDeclaradoDetalleDisgregado" Nullable="false" />
+    <Property Type="String" Name="RamoPoliza" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="TipoPoliza" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="Moneda" Nullable="false" MaxLength="16" />
+    <Property Type="Decimal" Name="ImporteValorDeclarado" Nullable="true" Precision="19" />
+    <Property Type="Decimal" Name="ImporteAjustado" Nullable="true" Precision="19" />
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="32" />
+    <Property Type="Decimal" Name="Cantidad" Nullable="true" Precision="12" Scale="2" />
+    <Property Type="Decimal" Name="CantidadAjustada" Nullable="true" Precision="12" Scale="2" />
+    <Property Type="String" Name="Detalle" Nullable="false" MaxLength="32" />
+  </ComplexType>
+  <ComplexType Name="SP_S_Vehiculo_Result">
+    <Property Type="Int32" Name="IdVehiculo" Nullable="false" />
+    <Property Type="Int16" Name="IdEmpresa" Nullable="false" />
+    <Property Type="Int16" Name="IdUnidadNegocio" Nullable="false" />
+    <Property Type="Int16" Name="IdCentroCosto" Nullable="true" />
+    <Property Type="Int16" Name="IdTipoVehiculo" Nullable="false" />
+    <Property Type="Int16" Name="IdMarca" Nullable="false" />
+    <Property Type="Int32" Name="IdModelo" Nullable="false" />
+    <Property Type="String" Name="PlacaAnterior" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="Placa" Nullable="false" MaxLength="10" />
+    <Property Type="String" Name="SerieCarroceria" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="SerieMotor" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="Clase" Nullable="false" MaxLength="64" />
+    <Property Type="Int16" Name="AnoFabricado" Nullable="false" />
+    <Property Type="Int16" Name="IdColor" Nullable="true" />
+    <Property Type="Int16" Name="NroAsientos" Nullable="false" />
+    <Property Type="Int16" Name="TimonCambiado" Nullable="false" />
+    <Property Type="Int16" Name="IdMoneda" Nullable="true" />
+    <Property Type="Decimal" Name="ValorComercial" Nullable="true" Precision="19" />
+    <Property Type="Int16" Name="IdEstado" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_S_Persona_Result">
+    <Property Type="Int32" Name="IdPersona" Nullable="false" />
+    <Property Type="String" Name="Nombres" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="ApellidoPaterno" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="ApellidoMaterno" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="Apellidos" Nullable="true" MaxLength="64" />
+    <Property Type="Int16" Name="IdTipoIdentidad" Nullable="true" />
+    <Property Type="String" Name="NroIdentidad" Nullable="true" MaxLength="20" />
+    <Property Type="Int16" Name="IdEstado" Nullable="false" />
+    <Property Type="String" Name="osLastLogin" Nullable="false" MaxLength="32" />
+    <Property Type="DateTime" Name="osLastDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="osLastApp" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="osFirstLogin" Nullable="false" MaxLength="32" />
+    <Property Type="DateTime" Name="osFirstDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="osFirstApp" Nullable="false" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="SP_S_trabajador_Result">
+    <Property Type="Int32" Name="IdTrabajador" Nullable="false" />
+    <Property Type="Int32" Name="IdPersona" Nullable="false" />
+    <Property Type="Int16" Name="IdArea" Nullable="false" />
+    <Property Type="Int16" Name="IdEmpresa" Nullable="true" />
+    <Property Type="Int16" Name="IdUnidadNegocio" Nullable="true" />
+    <Property Type="Int16" Name="IdCentroServicio" Nullable="true" />
+    <Property Type="Int16" Name="EsPlanillado" Nullable="false" />
+    <Property Type="Int16" Name="IdCargo" Nullable="false" />
+    <Property Type="Int16" Name="IdClasificacionCargo" Nullable="true" />
+    <Property Type="String" Name="Email" Nullable="true" MaxLength="96" />
+    <Property Type="String" Name="CodigoSAP" Nullable="true" MaxLength="32" />
+    <Property Type="Int16" Name="IdEstado" Nullable="false" />
+    <Property Type="String" Name="FechaIngreso" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="FechaInicioLaboral" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="osLastLogin" Nullable="false" MaxLength="32" />
+    <Property Type="DateTime" Name="osLastDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="osLastApp" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="osFirstLogin" Nullable="false" MaxLength="32" />
+    <Property Type="DateTime" Name="osFirstDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="osFirstApp" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="CodigoPlanilla" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="SP_S_ValorDeclaradoDetalleComplemento_Result">
+    <Property Type="Int16" Name="IdUUNN" Nullable="true" />
+    <Property Type="String" Name="UnidadNegocio" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="IdCentroCosto" Nullable="false" MaxLength="12" />
+    <Property Type="String" Name="CentroCosto" Nullable="false" MaxLength="128" />
+    <Property Type="String" Name="NroPlaca" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="SerieMotor" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="SerieCarroceria" Nullable="true" MaxLength="64" />
+    <Property Type="Int16" Name="IdMarca" Nullable="true" />
+    <Property Type="String" Name="Marca" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="IdModelo" Nullable="false" />
+    <Property Type="String" Name="Modelo" Nullable="false" MaxLength="128" />
+    <Property Type="Int16" Name="AnoFabricado" Nullable="true" />
+    <Property Type="String" Name="Clase" Nullable="true" MaxLength="64" />
+    <Property Type="Int16" Name="NroAsientos" Nullable="true" />
+    <Property Type="Int16" Name="TimonCambiado" Nullable="true" />
+    <Property Type="String" Name="fechaInicio" Nullable="false" MaxLength="1" />
+    <Property Type="String" Name="fechaTermino" Nullable="false" MaxLength="1" />
+    <Property Type="Int16" Name="IdMoneda" Nullable="true" />
+    <Property Type="String" Name="Moneda" Nullable="false" MaxLength="16" />
+    <Property Type="Int32" Name="IdValorDeclaradoDetalleComplemento" Nullable="false" />
+    <Property Type="Int32" Name="IdValorDeclaradoDetalle" Nullable="false" />
+    <Property Type="Decimal" Name="ValorDeclarado" Nullable="true" Precision="12" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="SP_S_ValorDeclaradoDetalleComplementoTrabajador_Result">
+    <Property Type="String" Name="Nombre" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="ApellidoPaterno" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="ApellidoMaterno" Nullable="true" MaxLength="32" />
+    <Property Type="String" Name="DNI" Nullable="true" MaxLength="20" />
+    <Property Type="DateTime" Name="FechaNacimiento" Nullable="true" Precision="23" />
+    <Property Type="String" Name="FechaIngreso" Nullable="true" MaxLength="10" />
+    <Property Type="Int16" Name="IdCargo" Nullable="true" />
+    <Property Type="String" Name="cargo" Nullable="true" MaxLength="128" />
+    <Property Type="Int16" Name="IdArea" Nullable="true" />
+    <Property Type="String" Name="area" Nullable="true" MaxLength="128" />
+    <Property Type="Int16" Name="IdNivelRiesgo" Nullable="true" />
+    <Property Type="String" Name="riesgo" Nullable="true" MaxLength="128" />
+    <Property Type="Int16" Name="IdTipoPlanilla" Nullable="true" />
+    <Property Type="String" Name="planilla" Nullable="true" MaxLength="128" />
+    <Property Type="Decimal" Name="ImporteMensual" Nullable="true" Precision="12" Scale="2" />
+    <Property Type="Decimal" Name="ImporteGratificacion" Nullable="true" Precision="12" Scale="2" />
+  </ComplexType>
+  <ComplexType Name="SP_S_BUSCAR_PERSONA_POR_ESTADO_Y_DNI_Result">
+    <Property Type="String" Name="Nombres" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="IdPersona" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_S_trabajador_POR_ID_PERSONA_Result">
+    <Property Type="Int32" Name="IdTrabajador" Nullable="false" />
+    <Property Type="Int32" Name="IdPersona" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_S_ValorDeclaradoPorId_Result">
+    <Property Type="Int32" Name="IdValorDeclarado" Nullable="false" />
+    <Property Type="Int16" Name="IdEmpresa" Nullable="false" />
+    <Property Type="DateTime" Name="FechaVigenciaInicio" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="FechaVigenciaTermino" Nullable="true" Precision="23" />
+    <Property Type="String" Name="RutaArchivo" Nullable="true" MaxLength="256" />
+    <Property Type="Int16" Name="IdMoneda" Nullable="true" />
+    <Property Type="Decimal" Name="TipoCambio" Nullable="true" Precision="12" Scale="2" />
+    <Property Type="Int16" Name="IdEstado" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="SP_S_ValorDeclarado_page_server_Result">
+    <Property Type="Int32" Name="row" Nullable="true" />
+    <Property Type="Int32" Name="IdValorDeclarado" Nullable="false" />
+    <Property Type="Int16" Name="IdEmpresa" Nullable="false" />
+    <Property Type="String" Name="DescEmpresa" Nullable="true" MaxLength="64" />
+    <Property Type="DateTime" Name="FechaVigenciaInicio" Nullable="false" Precision="23" />
+    <Property Type="DateTime" Name="FechaVigenciaTermino" Nullable="true" Precision="23" />
+    <Property Type="Int16" Name="IdMoneda" Nullable="true" />
+    <Property Type="String" Name="DescMoneda" Nullable="true" MaxLength="16" />
+    <Property Type="Decimal" Name="TipoCambio" Nullable="true" Precision="12" Scale="4" />
+    <Property Type="String" Name="DescEstado" Nullable="false" MaxLength="32" />
+    <Property Type="String" Name="NombreCortoEmpresa" Nullable="true" MaxLength="64" />
+    <Property Type="Int32" Name="totalFiltrados" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_S_CentroCosto_Result">
+    <Property Type="Int32" Name="IdCentroCosto" Nullable="false" />
+    <Property Type="Int16" Name="IdEmpresa" Nullable="false" />
+    <Property Type="Int16" Name="IdUUNN" Nullable="false" />
+    <Property Type="String" Name="Codigo" Nullable="false" MaxLength="12" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="128" />
+    <Property Type="Int16" Name="IdEstado" Nullable="false" />
+    <Property Type="String" Name="osLastLogin" Nullable="false" MaxLength="32" />
+    <Property Type="DateTime" Name="osLastDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="osLastApp" Nullable="false" MaxLength="64" />
+    <Property Type="String" Name="osFirstLogin" Nullable="false" MaxLength="32" />
+    <Property Type="DateTime" Name="osFirstDate" Nullable="false" Precision="23" />
+    <Property Type="String" Name="osFirstApp" Nullable="false" MaxLength="64" />
+  </ComplexType>
+  <ComplexType Name="SP_S_validar_importe_ajustado_y_cantidad_ajustada_Result">
+    <Property Type="Int32" Name="error" Nullable="true" />
+    <Property Type="String" Name="mensaje" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="SP_S_ReporteVehiculo_Result">
+    <Property Type="String" Name="NombreCorto" Nullable="true" MaxLength="64" />
+    <Property Type="Decimal" Name="Cantidad" Nullable="true" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="Importe" Nullable="true" Precision="38" Scale="8" />
+  </ComplexType>
+  <ComplexType Name="SP_S_ReporteVehiculoDetalle_Result">
+    <Property Type="String" Name="NombreCorto" Nullable="true" MaxLength="64" />
+    <Property Type="String" Name="Constante" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="Cantidad" Nullable="true" />
+    <Property Type="Decimal" Name="Importe" Nullable="true" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="SP_S_ReportePatrimonial_Result">
+    <Property Type="Int16" Name="IdDivisionPoliza" Nullable="false" />
+    <Property Type="String" Name="Descripcion" Nullable="false" MaxLength="128" />
+    <Property Type="Int16" Name="IdEmpresa" Nullable="false" />
+    <Property Type="String" Name="NombreCorto" Nullable="true" MaxLength="64" />
+    <Property Type="Int16" Name="IdTipoValorDeclarado" Nullable="false" />
+    <Property Type="String" Name="Nombre" Nullable="false" MaxLength="64" />
+    <Property Type="Decimal" Name="Cantidad" Nullable="false" Precision="38" Scale="2" />
+    <Property Type="Decimal" Name="Importe" Nullable="true" Precision="38" Scale="8" />
+  </ComplexType>
+</Schema>

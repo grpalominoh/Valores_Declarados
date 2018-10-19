@@ -1,0 +1,55 @@
+﻿@model SiniestrosSeguros.DTO.ModelViews.AjusteValorDeclarado.AjusteValorDeclaradoModalModelView
+@using System.Configuration
+@{
+    ViewBag.Title = "Ajustar Valores";
+}
+
+<script src="~/Scripts/ValorDeclarado/AjusteValor.js?version=@ConfigurationManager.AppSettings["version"]"></script>
+@*<h2>@ViewBag.Title</h2>*@
+
+@using (Html.BeginForm("EditaAjuste", "ValorDeclarado", FormMethod.Post, new { id = "frmAjustaValor" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="alert alert-warning" role="alert" id="divError">
+
+    </div>
+
+    @Html.HiddenFor(m => m.IdValorDeclaradoDetalleDisgregado)
+    @Html.HiddenFor(m => m.IdValorDeclaradoDetalle)
+    @Html.HiddenFor(m => m.IdValorDeclarado)
+    @Html.HiddenFor(m => m.Afecta)
+    <section>
+        <div class="col-sm-12" id="lstFiltrosEvaluar">
+            <div class="form-group">
+                <div class="form-horizontal">
+                    <div class="row">
+                        <div class="control-label text-muted centrado">
+                            <label>Ramo de Póliza: </label>
+                            <label> @Html.DisplayFor(m => m.RamoPoliza)</label>
+                        </div>
+                        <div class="control-label text-muted centrado">
+                            <label>Tipo de Póliza: </label>
+                            <label> @Html.DisplayFor(m => m.TipoPoliza)</label>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-group Modalpad">
+                            <label class="Modalpad">Importe Ajustado: </label>
+                            @Html.TextBoxFor(m => m.ImporteAjustado, new { @class = "form-control formatoMonto", @maxlength = 12 })
+                        </div>
+                        <div class="input-group Modalpad">
+                            <label class="Modalpad">Cantidad Ajustada: </label>
+                            @Html.TextBoxFor(m => m.CantidadAjustada, new { @class = "form-control formatoEntero", @maxlength = 12 })
+                        </div>
+                    </div>
+
+                    <div class="form-group Modalpad" style="margin-left: 65px;">
+                        <button type="submit" class="btn btn-primary ico-grabar">Guardar</button>
+                        <button type="button" class="btn btn-secondary ico-cancelar" data-dismiss="modal">Cancelar</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+}
+

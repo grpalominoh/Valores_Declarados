@@ -1,0 +1,131 @@
+﻿.field-validation-error {
+    color: red;
+}
+
+.ico-create {
+    background-image: url(../Content/Images/ico-action-32-sprites.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: -0px -3px !important;
+    padding-left: 30px !important;
+}
+
+.ico-detalle {
+    background-image: url(../Content/Images/ico-action-32-sprites.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: -0px -3332px !important;
+    padding-left: 30px !important;
+}
+
+.ico-descargar {
+    /*background-image: url(../Content/Images/cloud-down-icon.png) !important;*/
+    background-image: url(../Content/Images/Itweek-Knob-Toolbar-Knob-Download.ico) !important;
+    background-size: 25px 25px;
+    background-position: center;
+    height: 28px;
+    width: 29px;
+    position: center;
+    background-repeat: no-repeat !important;
+    padding-left: 20px !important;
+}
+
+.ico-subir {
+    background-image: url(../Content/Images/subir.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: 2px 5px !important;
+    padding-left: 30px !important;
+    vertical-align: middle;
+    padding: 5px;
+    background-size: 25px 25px;
+}
+
+.ico-buscar {
+    background-image: url(../Content/Images/ico-action-32-sprites.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: -0px -3395px !important;
+    padding-left: 30px !important;
+}
+
+.ico-grabar {
+    background-image: url(../Content/Images/ico-action-32-sprites.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: -0px -1220px !important;
+    padding-left: 30px !important;
+}
+
+.ico-cancelar {
+    background-image: url(../Content/Images/ico-action-32-sprites.png) !important;
+    background-repeat: no-repeat !important;
+    background-position: -0px -835px !important;
+    padding-left: 30px !important;
+}
+
+.th-chk-select {
+    width: 40px !important;
+    text-align: left !important;
+}
+
+.th-chk-tabla {
+    text-align: center !important;
+}
+
+.th-chk-CConstantes, .th-chk-select {
+    text-align: left !important;
+}
+
+.th-chk-CConstantesID {
+    text-align: left !important;
+    padding: 10px 5px !important;
+}
+
+.th-chk-TipoValorDeclarado {
+    text-align: left !important;
+    width: 40px !important;
+}
+
+
+.th-chk-CConstantes {
+    text-align: left !important;
+    padding: 10px 5px !important;
+}
+
+.table tbody td {
+    text-align: left !important;
+}
+
+#tbArchivosAdjuntos td:last-child {
+    text-align: right !important;
+}
+
+.table tbody td:not(.numeric-right), .table tbody td:not(.numeric-right2) {
+    text-align: center !important;
+}
+
+.table tbody td.numeric-right {
+    text-align: right !important;
+    padding-right:25px !important;
+}
+.table tbody td.numeric-right2 {
+    text-align: right !important;
+    padding-right: 13px !important;
+}
+
+.table tbody td.text-center {
+    text-align: center !important;
+}
+.table tbody td.text-left {
+    text-align: left !important;
+}
+.table thead th{
+    text-align: center !important;
+}
+
+.table tbody td label[class*="radio"] {
+    position: relative;
+    top: 5px;
+    left: 50%;
+}
+
+#tbValorDeclaradoDetalle tr th:nth-child(0n+2) label {
+    width:100px !important;
+     text-align:center;
+}

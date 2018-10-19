@@ -1,0 +1,625 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="SegurosDBModelStoreContainer" CdmEntityContainer="SegurosDBEntities">
+    <FunctionImportMapping FunctionImportName="SP_D_ArchivoValorDeclaradoPorId" FunctionName="SegurosDBModel.Store.SP_D_ArchivoValorDeclaradoPorId" />
+    <FunctionImportMapping FunctionImportName="SP_D_ValorDeclaradoDetalleDisgregado" FunctionName="SegurosDBModel.Store.SP_D_ValorDeclaradoDetalleDisgregado" />
+    <FunctionImportMapping FunctionImportName="SP_D_ValorDeclaradoDetallePorId" FunctionName="SegurosDBModel.Store.SP_D_ValorDeclaradoDetallePorId" />
+    <FunctionImportMapping FunctionImportName="SP_I_ArchivoValorDeclarado" FunctionName="SegurosDBModel.Store.SP_I_ArchivoValorDeclarado" />
+    <FunctionImportMapping FunctionImportName="SP_I_Constante" FunctionName="SegurosDBModel.Store.SP_I_Constante" />
+    <FunctionImportMapping FunctionImportName="SP_I_DivisionPoliza" FunctionName="SegurosDBModel.Store.SP_I_DivisionPoliza" />
+    <FunctionImportMapping FunctionImportName="SP_I_TipoValorDeclarado" FunctionName="SegurosDBModel.Store.SP_I_TipoValorDeclarado" />
+    <FunctionImportMapping FunctionImportName="SP_I_ValorDeclarado" FunctionName="SegurosDBModel.Store.SP_I_ValorDeclarado" />
+    <FunctionImportMapping FunctionImportName="SP_I_ValorDeclaradoDetalle" FunctionName="SegurosDBModel.Store.SP_I_ValorDeclaradoDetalle" />
+    <FunctionImportMapping FunctionImportName="SP_I_ValorDeclaradoDetalleComplemento" FunctionName="SegurosDBModel.Store.SP_I_ValorDeclaradoDetalleComplemento" />
+    <FunctionImportMapping FunctionImportName="SP_I_ValorDeclaradoDetalleDisgregado" FunctionName="SegurosDBModel.Store.SP_I_ValorDeclaradoDetalleDisgregado" />
+    <FunctionImportMapping FunctionImportName="SP_S_ArchivoValorDeclarado" FunctionName="SegurosDBModel.Store.SP_S_ArchivoValorDeclarado">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_ArchivoValorDeclarado_Result">
+          <ScalarProperty Name="IdArchivo" ColumnName="IdArchivo" />
+          <ScalarProperty Name="IdValorDeclarado" ColumnName="IdValorDeclarado" />
+          <ScalarProperty Name="NombreOrigen" ColumnName="NombreOrigen" />
+          <ScalarProperty Name="NombreAsignado" ColumnName="NombreAsignado" />
+          <ScalarProperty Name="Ruta" ColumnName="Ruta" />
+          <ScalarProperty Name="Formato" ColumnName="Formato" />
+          <ScalarProperty Name="Estado" ColumnName="Estado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_Constante" FunctionName="SegurosDBModel.Store.SP_S_Constante">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_Constante_Result">
+          <ScalarProperty Name="IdConstante" ColumnName="IdConstante" />
+          <ScalarProperty Name="IdPadre" ColumnName="IdPadre" />
+          <ScalarProperty Name="Constante" ColumnName="Constante" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CodigoAgrupador" ColumnName="CodigoAgrupador" />
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+          <ScalarProperty Name="Tag" ColumnName="Tag" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+          <ScalarProperty Name="ConstantePadre" ColumnName="ConstantePadre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_Constante_Hijo" FunctionName="SegurosDBModel.Store.SP_S_Constante_Hijo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_Constante_Hijo_Result">
+          <ScalarProperty Name="IdConstante" ColumnName="IdConstante" />
+          <ScalarProperty Name="IdPadre" ColumnName="IdPadre" />
+          <ScalarProperty Name="Constante" ColumnName="Constante" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CodigoAgrupador" ColumnName="CodigoAgrupador" />
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+          <ScalarProperty Name="Tag" ColumnName="Tag" />
+          <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_Constante_PorCodigoAgrupador" FunctionName="SegurosDBModel.Store.SP_S_Constante_PorCodigoAgrupador">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_Constante_PorCodigoAgrupador_Result">
+          <ScalarProperty Name="IdConstante" ColumnName="IdConstante" />
+          <ScalarProperty Name="IdPadre" ColumnName="IdPadre" />
+          <ScalarProperty Name="Constante" ColumnName="Constante" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CodigoAgrupador" ColumnName="CodigoAgrupador" />
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+          <ScalarProperty Name="Tag" ColumnName="Tag" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_ConstantePorEstado" FunctionName="SegurosDBModel.Store.SP_S_ConstantePorEstado">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_ConstantePorEstado_Result">
+          <ScalarProperty Name="IdConstante" ColumnName="IdConstante" />
+          <ScalarProperty Name="IdPadre" ColumnName="IdPadre" />
+          <ScalarProperty Name="Constante" ColumnName="Constante" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CodigoAgrupador" ColumnName="CodigoAgrupador" />
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_DevuelveValorDeclarado_PorTipoValorDeclarado" FunctionName="SegurosDBModel.Store.SP_S_DevuelveValorDeclarado_PorTipoValorDeclarado" />
+    <FunctionImportMapping FunctionImportName="SP_S_DivisionPoliza_PorTipoPoliza" FunctionName="SegurosDBModel.Store.SP_S_DivisionPoliza_PorTipoPoliza">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_DivisionPoliza_PorTipoPoliza_Result">
+          <ScalarProperty Name="IdDivisionPoliza" ColumnName="IdDivisionPoliza" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Abreviatura" ColumnName="Abreviatura" />
+          <ScalarProperty Name="AplicaProveedor" ColumnName="AplicaProveedor" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+          <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_Empresa" FunctionName="SegurosDBModel.Store.SP_S_Empresa">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_Empresa_Result">
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="NombreCorto" ColumnName="NombreCorto" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_Estado" FunctionName="SegurosDBModel.Store.SP_S_Estado">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_Estado_Result">
+          <ScalarProperty Name="IdRegistro" ColumnName="IdRegistro" />
+          <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_Marca" FunctionName="SegurosDBModel.Store.SP_S_Marca">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_Marca_Result">
+          <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Abreviatura" ColumnName="Abreviatura" />
+          <ScalarProperty Name="IdTipo" ColumnName="IdTipo" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_Modelo" FunctionName="SegurosDBModel.Store.SP_S_Modelo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_Modelo_Result">
+          <ScalarProperty Name="IdModelo" ColumnName="IdModelo" />
+          <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="Abreviatura" ColumnName="Abreviatura" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_Moneda" FunctionName="SegurosDBModel.Store.SP_S_Moneda">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_Moneda_Result">
+          <ScalarProperty Name="IdMoneda" ColumnName="IdMoneda" />
+          <ScalarProperty Name="Moneda" ColumnName="Moneda" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_RamoPoliza_PorCodigoAgrupador" FunctionName="SegurosDBModel.Store.SP_S_RamoPoliza_PorCodigoAgrupador">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_RamoPoliza_PorCodigoAgrupador_Result">
+          <ScalarProperty Name="IdConstante" ColumnName="IdConstante" />
+          <ScalarProperty Name="IdPadre" ColumnName="IdPadre" />
+          <ScalarProperty Name="Constante" ColumnName="Constante" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="CodigoAgrupador" ColumnName="CodigoAgrupador" />
+          <ScalarProperty Name="Orden" ColumnName="Orden" />
+          <ScalarProperty Name="Tag" ColumnName="Tag" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_ReportePersonal" FunctionName="SegurosDBModel.Store.SP_S_ReportePersonal">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_ReportePersonal_Result">
+          <ScalarProperty Name="Empresa" ColumnName="Empresa" />
+          <ScalarProperty Name="CantidadTrabajadores" ColumnName="CantidadTrabajadores" />
+          <ScalarProperty Name="ImporteTrabajadores" ColumnName="ImporteTrabajadores" />
+          <ScalarProperty Name="CantidadPracticantes" ColumnName="CantidadPracticantes" />
+          <ScalarProperty Name="ImportePracticantes" ColumnName="ImportePracticantes" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_TipoValorDeclarado" FunctionName="SegurosDBModel.Store.SP_S_TipoValorDeclarado">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_TipoValorDeclarado_Result">
+          <ScalarProperty Name="IdTipoValorDeclarado" ColumnName="IdTipoValorDeclarado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="AfectaImporte" ColumnName="AfectaImporte" />
+          <ScalarProperty Name="AfectaCantidad" ColumnName="AfectaCantidad" />
+          <ScalarProperty Name="PermiteCargaDetalle" ColumnName="PermiteCargaDetalle" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+          <ScalarProperty Name="EstadoNombre" ColumnName="EstadoNombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_TipoValorDeclarado_PorIdEstado" FunctionName="SegurosDBModel.Store.SP_S_TipoValorDeclarado_PorIdEstado">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_TipoValorDeclarado_PorIdEstado_Result">
+          <ScalarProperty Name="IdTipoValorDeclarado" ColumnName="IdTipoValorDeclarado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="AfectaImporte" ColumnName="AfectaImporte" />
+          <ScalarProperty Name="AfectaCantidad" ColumnName="AfectaCantidad" />
+          <ScalarProperty Name="PermiteCargaDetalle" ColumnName="PermiteCargaDetalle" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+          <ScalarProperty Name="EstadoNombre" ColumnName="EstadoNombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_TipoValorDeclarado_PorIdTipoValorDeclarado" FunctionName="SegurosDBModel.Store.SP_S_TipoValorDeclarado_PorIdTipoValorDeclarado">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_TipoValorDeclarado_PorIdTipoValorDeclarado_Result">
+          <ScalarProperty Name="IdTipoValorDeclarado" ColumnName="IdTipoValorDeclarado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="AfectaImporte" ColumnName="AfectaImporte" />
+          <ScalarProperty Name="AfectaCantidad" ColumnName="AfectaCantidad" />
+          <ScalarProperty Name="PermiteCargaDetalle" ColumnName="PermiteCargaDetalle" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+          <ScalarProperty Name="EstadoNombre" ColumnName="EstadoNombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_TipoValorDeclarado_PorValorDeclarado" FunctionName="SegurosDBModel.Store.SP_S_TipoValorDeclarado_PorValorDeclarado">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_TipoValorDeclarado_PorValorDeclarado_Result">
+          <ScalarProperty Name="IdTipoValorDeclarado" ColumnName="IdTipoValorDeclarado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_Unidad_Medida" FunctionName="SegurosDBModel.Store.SP_S_Unidad_Medida">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_Unidad_Medida_Result">
+          <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_UnidadNegocio" FunctionName="SegurosDBModel.Store.SP_S_UnidadNegocio">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_UnidadNegocio_Result">
+          <ScalarProperty Name="IdUnidadNegocio" ColumnName="IdUnidadNegocio" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="CodigoSap" ColumnName="CodigoSap" />
+          <ScalarProperty Name="EsSede" ColumnName="EsSede" />
+          <ScalarProperty Name="EsCorporativo" ColumnName="EsCorporativo" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+          <ScalarProperty Name="osLastLogin" ColumnName="osLastLogin" />
+          <ScalarProperty Name="osLastDate" ColumnName="osLastDate" />
+          <ScalarProperty Name="osLastApp" ColumnName="osLastApp" />
+          <ScalarProperty Name="osFirstLogin" ColumnName="osFirstLogin" />
+          <ScalarProperty Name="osFirstDate" ColumnName="osFirstDate" />
+          <ScalarProperty Name="osFirstApp" ColumnName="osFirstApp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_ValorDeclarado" FunctionName="SegurosDBModel.Store.SP_S_ValorDeclarado">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_ValorDeclarado_Result">
+          <ScalarProperty Name="IdValorDeclarado" ColumnName="IdValorDeclarado" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="DescEmpresa" ColumnName="DescEmpresa" />
+          <ScalarProperty Name="FechaVigenciaInicio" ColumnName="FechaVigenciaInicio" />
+          <ScalarProperty Name="FechaVigenciaTermino" ColumnName="FechaVigenciaTermino" />
+          <ScalarProperty Name="IdMoneda" ColumnName="IdMoneda" />
+          <ScalarProperty Name="DescMoneda" ColumnName="DescMoneda" />
+          <ScalarProperty Name="TipoCambio" ColumnName="TipoCambio" />
+          <ScalarProperty Name="DescEstado" ColumnName="DescEstado" />
+          <ScalarProperty Name="NombreCortoEmpresa" ColumnName="NombreCortoEmpresa" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_ValorDeclaradoDetalle" FunctionName="SegurosDBModel.Store.SP_S_ValorDeclaradoDetalle">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_ValorDeclaradoDetalle_Result">
+          <ScalarProperty Name="IdValorDeclaradoDetalle" ColumnName="IdValorDeclaradoDetalle" />
+          <ScalarProperty Name="IdTipoValorDeclarado" ColumnName="IdTipoValorDeclarado" />
+          <ScalarProperty Name="TipoValorDeclaradoDesc" ColumnName="TipoValorDeclaradoDesc" />
+          <ScalarProperty Name="IdMoneda" ColumnName="IdMoneda" />
+          <ScalarProperty Name="MonedaDesc" ColumnName="MonedaDesc" />
+          <ScalarProperty Name="ImporteValorDeclarado" ColumnName="ImporteValorDeclarado" />
+          <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+          <ScalarProperty Name="UnidadMedidaDesc" ColumnName="UnidadMedidaDesc" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_ValorDeclaradoDetalle_PorIdValorDeclarado" FunctionName="SegurosDBModel.Store.SP_S_ValorDeclaradoDetalle_PorIdValorDeclarado">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_ValorDeclaradoDetalle_PorIdValorDeclarado_Result">
+          <ScalarProperty Name="IdValorDeclaradoDetalle" ColumnName="IdValorDeclaradoDetalle" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Moneda" ColumnName="Moneda" />
+          <ScalarProperty Name="ImporteValorDeclarado" ColumnName="ImporteValorDeclarado" />
+          <ScalarProperty Name="ImporteAjustado" ColumnName="ImporteAjustado" />
+          <ScalarProperty Name="UnidadMedida" ColumnName="UnidadMedida" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="CantidadAjustada" ColumnName="CantidadAjustada" />
+          <ScalarProperty Name="Afecta" ColumnName="Afecta" />
+          <ScalarProperty Name="TipoRegistro" ColumnName="TipoRegistro" />
+          <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_ValorDeclaradoDetalle_PorTipoValorDeclarado_ValorDeclarado" FunctionName="SegurosDBModel.Store.SP_S_ValorDeclaradoDetalle_PorTipoValorDeclarado_ValorDeclarado">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_ValorDeclaradoDetalle_PorTipoValorDeclarado_ValorDeclarado_Result">
+          <ScalarProperty Name="IdValorDeclaradoDetalle" ColumnName="IdValorDeclaradoDetalle" />
+          <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="ImporteValorDeclarado" ColumnName="ImporteValorDeclarado" />
+          <ScalarProperty Name="AfectaImporte" ColumnName="AfectaImporte" />
+          <ScalarProperty Name="AfectaCantidad" ColumnName="AfectaCantidad" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_ValorDeclaradoDetalleDisgregado_PorIdValorDeclarado" FunctionName="SegurosDBModel.Store.SP_S_ValorDeclaradoDetalleDisgregado_PorIdValorDeclarado">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_ValorDeclaradoDetalleDisgregado_PorIdValorDeclarado_Result">
+          <ScalarProperty Name="IdValorDeclaradoDetalleDisgregado" ColumnName="IdValorDeclaradoDetalleDisgregado" />
+          <ScalarProperty Name="IdValorDeclaradoDetalle" ColumnName="IdValorDeclaradoDetalle" />
+          <ScalarProperty Name="IdTipoValorDeclarado" ColumnName="IdTipoValorDeclarado" />
+          <ScalarProperty Name="TipoValorDeclarado" ColumnName="TipoValorDeclarado" />
+          <ScalarProperty Name="IdTipoPoliza" ColumnName="IdTipoPoliza" />
+          <ScalarProperty Name="RamoPoliza" ColumnName="RamoPoliza" />
+          <ScalarProperty Name="IdDivisionPoliza" ColumnName="IdDivisionPoliza" />
+          <ScalarProperty Name="DivisionPoliza" ColumnName="DivisionPoliza" />
+          <ScalarProperty Name="IdUnidadMedida" ColumnName="IdUnidadMedida" />
+          <ScalarProperty Name="UnidadMedida" ColumnName="UnidadMedida" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="IdMoneda" ColumnName="IdMoneda" />
+          <ScalarProperty Name="Moneda" ColumnName="Moneda" />
+          <ScalarProperty Name="ImporteValorDeclarado" ColumnName="ImporteValorDeclarado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_ValorDeclaradoDetalleDisgregado_PorIdValorDeclaradoDetalle" FunctionName="SegurosDBModel.Store.SP_S_ValorDeclaradoDetalleDisgregado_PorIdValorDeclaradoDetalle">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_ValorDeclaradoDetalleDisgregado_PorIdValorDeclaradoDetalle_Result">
+          <ScalarProperty Name="IdValorDeclaradoDetalleDisgregado" ColumnName="IdValorDeclaradoDetalleDisgregado" />
+          <ScalarProperty Name="RamoPoliza" ColumnName="RamoPoliza" />
+          <ScalarProperty Name="TipoPoliza" ColumnName="TipoPoliza" />
+          <ScalarProperty Name="Moneda" ColumnName="Moneda" />
+          <ScalarProperty Name="ImporteValorDeclarado" ColumnName="ImporteValorDeclarado" />
+          <ScalarProperty Name="ImporteAjustado" ColumnName="ImporteAjustado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="CantidadAjustada" ColumnName="CantidadAjustada" />
+          <ScalarProperty Name="Detalle" ColumnName="Detalle" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_Vehiculo" FunctionName="SegurosDBModel.Store.SP_S_Vehiculo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_Vehiculo_Result">
+          <ScalarProperty Name="IdVehiculo" ColumnName="IdVehiculo" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="IdUnidadNegocio" ColumnName="IdUnidadNegocio" />
+          <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+          <ScalarProperty Name="IdTipoVehiculo" ColumnName="IdTipoVehiculo" />
+          <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
+          <ScalarProperty Name="IdModelo" ColumnName="IdModelo" />
+          <ScalarProperty Name="PlacaAnterior" ColumnName="PlacaAnterior" />
+          <ScalarProperty Name="Placa" ColumnName="Placa" />
+          <ScalarProperty Name="SerieCarroceria" ColumnName="SerieCarroceria" />
+          <ScalarProperty Name="SerieMotor" ColumnName="SerieMotor" />
+          <ScalarProperty Name="Clase" ColumnName="Clase" />
+          <ScalarProperty Name="AnoFabricado" ColumnName="AnoFabricado" />
+          <ScalarProperty Name="IdColor" ColumnName="IdColor" />
+          <ScalarProperty Name="NroAsientos" ColumnName="NroAsientos" />
+          <ScalarProperty Name="TimonCambiado" ColumnName="TimonCambiado" />
+          <ScalarProperty Name="IdMoneda" ColumnName="IdMoneda" />
+          <ScalarProperty Name="ValorComercial" ColumnName="ValorComercial" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_U_AjustarValoresDeclarados" FunctionName="SegurosDBModel.Store.SP_U_AjustarValoresDeclarados" />
+    <FunctionImportMapping FunctionImportName="SP_U_Constante" FunctionName="SegurosDBModel.Store.SP_U_Constante" />
+    <FunctionImportMapping FunctionImportName="SP_U_TipoPoliza" FunctionName="SegurosDBModel.Store.SP_U_TipoPoliza" />
+    <FunctionImportMapping FunctionImportName="SP_U_TipoValorDeclarado" FunctionName="SegurosDBModel.Store.SP_U_TipoValorDeclarado" />
+    <FunctionImportMapping FunctionImportName="SP_U_ValorDeclarado" FunctionName="SegurosDBModel.Store.SP_U_ValorDeclarado" />
+    <FunctionImportMapping FunctionImportName="SP_U_ValorDeclarado_CamposAjustados" FunctionName="SegurosDBModel.Store.SP_U_ValorDeclarado_CamposAjustados" />
+    <FunctionImportMapping FunctionImportName="SP_U_ValorDeclaradoDetalle" FunctionName="SegurosDBModel.Store.SP_U_ValorDeclaradoDetalle" />
+    <FunctionImportMapping FunctionImportName="SP_U_ValorDeclaradoDetalleComplementoPorEstado" FunctionName="SegurosDBModel.Store.SP_U_ValorDeclaradoDetalleComplementoPorEstado" />
+    <FunctionImportMapping FunctionImportName="ValorDeclaradoAutorizacion_Insertar_pa" FunctionName="SegurosDBModel.Store.ValorDeclaradoAutorizacion_Insertar_pa" />
+    <FunctionImportMapping FunctionImportName="SP_S_NotificarAutorizacion" FunctionName="SegurosDBModel.Store.SP_S_NotificarAutorizacion" />
+    <FunctionImportMapping FunctionImportName="SP_S_Area" FunctionName="SegurosDBModel.Store.SP_S_Area">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_Area_Result">
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="IdGerencia" ColumnName="IdGerencia" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+          <ScalarProperty Name="IdAreaJefatura" ColumnName="IdAreaJefatura" />
+          <ScalarProperty Name="IdAreaGenenciaLinea" ColumnName="IdAreaGenenciaLinea" />
+          <ScalarProperty Name="IdAreaCorporativa" ColumnName="IdAreaCorporativa" />
+          <ScalarProperty Name="osLastLogin" ColumnName="osLastLogin" />
+          <ScalarProperty Name="osLastDate" ColumnName="osLastDate" />
+          <ScalarProperty Name="osLastApp" ColumnName="osLastApp" />
+          <ScalarProperty Name="osFirstLogin" ColumnName="osFirstLogin" />
+          <ScalarProperty Name="osFirstDate" ColumnName="osFirstDate" />
+          <ScalarProperty Name="osFirstApp" ColumnName="osFirstApp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_Persona" FunctionName="SegurosDBModel.Store.SP_S_Persona">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_Persona_Result">
+          <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="Apellidos" ColumnName="Apellidos" />
+          <ScalarProperty Name="IdTipoIdentidad" ColumnName="IdTipoIdentidad" />
+          <ScalarProperty Name="NroIdentidad" ColumnName="NroIdentidad" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+          <ScalarProperty Name="osLastLogin" ColumnName="osLastLogin" />
+          <ScalarProperty Name="osLastDate" ColumnName="osLastDate" />
+          <ScalarProperty Name="osLastApp" ColumnName="osLastApp" />
+          <ScalarProperty Name="osFirstLogin" ColumnName="osFirstLogin" />
+          <ScalarProperty Name="osFirstDate" ColumnName="osFirstDate" />
+          <ScalarProperty Name="osFirstApp" ColumnName="osFirstApp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_I_Persona" FunctionName="SegurosDBModel.Store.SP_I_Persona" />
+    <FunctionImportMapping FunctionImportName="SP_S_trabajador" FunctionName="SegurosDBModel.Store.SP_S_trabajador">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_trabajador_Result">
+          <ScalarProperty Name="IdTrabajador" ColumnName="IdTrabajador" />
+          <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="IdUnidadNegocio" ColumnName="IdUnidadNegocio" />
+          <ScalarProperty Name="IdCentroServicio" ColumnName="IdCentroServicio" />
+          <ScalarProperty Name="EsPlanillado" ColumnName="EsPlanillado" />
+          <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+          <ScalarProperty Name="IdClasificacionCargo" ColumnName="IdClasificacionCargo" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="CodigoSAP" ColumnName="CodigoSAP" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="FechaInicioLaboral" ColumnName="FechaInicioLaboral" />
+          <ScalarProperty Name="osLastLogin" ColumnName="osLastLogin" />
+          <ScalarProperty Name="osLastDate" ColumnName="osLastDate" />
+          <ScalarProperty Name="osLastApp" ColumnName="osLastApp" />
+          <ScalarProperty Name="osFirstLogin" ColumnName="osFirstLogin" />
+          <ScalarProperty Name="osFirstDate" ColumnName="osFirstDate" />
+          <ScalarProperty Name="osFirstApp" ColumnName="osFirstApp" />
+          <ScalarProperty Name="CodigoPlanilla" ColumnName="CodigoPlanilla" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_I_Trabajador" FunctionName="SegurosDBModel.Store.SP_I_Trabajador" />
+    <FunctionImportMapping FunctionImportName="SP_U_PERSONA" FunctionName="SegurosDBModel.Store.SP_U_PERSONA" />
+    <FunctionImportMapping FunctionImportName="SP_U_TRABAJADOR" FunctionName="SegurosDBModel.Store.SP_U_TRABAJADOR" />
+    <FunctionImportMapping FunctionImportName="SP_U_ValorDeclaradoAutorizacion" FunctionName="SegurosDBModel.Store.SP_U_ValorDeclaradoAutorizacion" />
+    <FunctionImportMapping FunctionImportName="SP_S_PendienteAutorizacion" FunctionName="SegurosDBModel.Store.SP_S_PendienteAutorizacion">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_PendienteAutorizacion_Result">
+          <ScalarProperty Name="IdValorDeclaradoAutorizacion" ColumnName="IdValorDeclaradoAutorizacion" />
+          <ScalarProperty Name="IdValorDeclarado" ColumnName="IdValorDeclarado" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+          <ScalarProperty Name="IdTrabajador" ColumnName="IdTrabajador" />
+          <ScalarProperty Name="OrdenAutoriza" ColumnName="OrdenAutoriza" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_U_ValorDeclarado_Estado" FunctionName="SegurosDBModel.Store.SP_U_ValorDeclarado_Estado" />
+    <FunctionImportMapping FunctionImportName="SP_S_ValorDeclaradoDetalleComplemento" FunctionName="SegurosDBModel.Store.SP_S_ValorDeclaradoDetalleComplemento">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_ValorDeclaradoDetalleComplemento_Result">
+          <ScalarProperty Name="IdUUNN" ColumnName="IdUUNN" />
+          <ScalarProperty Name="UnidadNegocio" ColumnName="UnidadNegocio" />
+          <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+          <ScalarProperty Name="CentroCosto" ColumnName="CentroCosto" />
+          <ScalarProperty Name="NroPlaca" ColumnName="NroPlaca" />
+          <ScalarProperty Name="SerieMotor" ColumnName="SerieMotor" />
+          <ScalarProperty Name="SerieCarroceria" ColumnName="SerieCarroceria" />
+          <ScalarProperty Name="IdMarca" ColumnName="IdMarca" />
+          <ScalarProperty Name="Marca" ColumnName="Marca" />
+          <ScalarProperty Name="IdModelo" ColumnName="IdModelo" />
+          <ScalarProperty Name="Modelo" ColumnName="Modelo" />
+          <ScalarProperty Name="AnoFabricado" ColumnName="AnoFabricado" />
+          <ScalarProperty Name="Clase" ColumnName="Clase" />
+          <ScalarProperty Name="NroAsientos" ColumnName="NroAsientos" />
+          <ScalarProperty Name="TimonCambiado" ColumnName="TimonCambiado" />
+          <ScalarProperty Name="fechaInicio" ColumnName="fechaInicio" />
+          <ScalarProperty Name="fechaTermino" ColumnName="fechaTermino" />
+          <ScalarProperty Name="IdMoneda" ColumnName="IdMoneda" />
+          <ScalarProperty Name="Moneda" ColumnName="Moneda" />
+          <ScalarProperty Name="IdValorDeclaradoDetalleComplemento" ColumnName="IdValorDeclaradoDetalleComplemento" />
+          <ScalarProperty Name="IdValorDeclaradoDetalle" ColumnName="IdValorDeclaradoDetalle" />
+          <ScalarProperty Name="ValorDeclarado" ColumnName="ValorDeclarado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_ValorDeclaradoDetalleComplementoTrabajador" FunctionName="SegurosDBModel.Store.SP_S_ValorDeclaradoDetalleComplementoTrabajador">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_ValorDeclaradoDetalleComplementoTrabajador_Result">
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="ApellidoPaterno" ColumnName="ApellidoPaterno" />
+          <ScalarProperty Name="ApellidoMaterno" ColumnName="ApellidoMaterno" />
+          <ScalarProperty Name="DNI" ColumnName="DNI" />
+          <ScalarProperty Name="FechaNacimiento" ColumnName="FechaNacimiento" />
+          <ScalarProperty Name="FechaIngreso" ColumnName="FechaIngreso" />
+          <ScalarProperty Name="IdCargo" ColumnName="IdCargo" />
+          <ScalarProperty Name="cargo" ColumnName="cargo" />
+          <ScalarProperty Name="IdArea" ColumnName="IdArea" />
+          <ScalarProperty Name="area" ColumnName="area" />
+          <ScalarProperty Name="IdNivelRiesgo" ColumnName="IdNivelRiesgo" />
+          <ScalarProperty Name="riesgo" ColumnName="riesgo" />
+          <ScalarProperty Name="IdTipoPlanilla" ColumnName="IdTipoPlanilla" />
+          <ScalarProperty Name="planilla" ColumnName="planilla" />
+          <ScalarProperty Name="ImporteMensual" ColumnName="ImporteMensual" />
+          <ScalarProperty Name="ImporteGratificacion" ColumnName="ImporteGratificacion" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_I_Vehiculo" FunctionName="SegurosDBModel.Store.SP_I_Vehiculo" />
+    <FunctionImportMapping FunctionImportName="SP_U_Vehiculo" FunctionName="SegurosDBModel.Store.SP_U_Vehiculo" />
+    <FunctionImportMapping FunctionImportName="SP_S_BUSCAR_PERSONA_POR_ESTADO_Y_DNI" FunctionName="SegurosDBModel.Store.SP_S_BUSCAR_PERSONA_POR_ESTADO_Y_DNI">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_BUSCAR_PERSONA_POR_ESTADO_Y_DNI_Result">
+          <ScalarProperty Name="Nombres" ColumnName="Nombres" />
+          <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_trabajador_POR_ID_PERSONA" FunctionName="SegurosDBModel.Store.SP_S_trabajador_POR_ID_PERSONA">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_trabajador_POR_ID_PERSONA_Result">
+          <ScalarProperty Name="IdTrabajador" ColumnName="IdTrabajador" />
+          <ScalarProperty Name="IdPersona" ColumnName="IdPersona" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_i_personacomplemento1" FunctionName="SegurosDBModel.Store.sp_i_personacomplemento" />
+    <FunctionImportMapping FunctionImportName="sp_s_buscar_personacomplemento_codigo1" FunctionName="SegurosDBModel.Store.sp_s_buscar_personacomplemento_codigo" />
+    <FunctionImportMapping FunctionImportName="sp_u_personacomplemento1" FunctionName="SegurosDBModel.Store.sp_u_personacomplemento" />
+    <FunctionImportMapping FunctionImportName="SP_I_ValorDeclaradoDetalleComplemento_trabajador_excel_writer" FunctionName="SegurosDBModel.Store.SP_I_ValorDeclaradoDetalleComplemento_trabajador_excel_writer" />
+    <FunctionImportMapping FunctionImportName="SP_I_ValorDeclaradoDetalleComplemento_vehiculo_excel_writer" FunctionName="SegurosDBModel.Store.SP_I_ValorDeclaradoDetalleComplemento_vehiculo_excel_writer" />
+    <FunctionImportMapping FunctionImportName="SP_S_ValorDeclaradoPorId" FunctionName="SegurosDBModel.Store.SP_S_ValorDeclaradoPorId">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_ValorDeclaradoPorId_Result">
+          <ScalarProperty Name="IdValorDeclarado" ColumnName="IdValorDeclarado" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="FechaVigenciaInicio" ColumnName="FechaVigenciaInicio" />
+          <ScalarProperty Name="FechaVigenciaTermino" ColumnName="FechaVigenciaTermino" />
+          <ScalarProperty Name="RutaArchivo" ColumnName="RutaArchivo" />
+          <ScalarProperty Name="IdMoneda" ColumnName="IdMoneda" />
+          <ScalarProperty Name="TipoCambio" ColumnName="TipoCambio" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_ValorDeclarado_page_server" FunctionName="SegurosDBModel.Store.SP_S_ValorDeclarado_page_server">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_ValorDeclarado_page_server_Result">
+          <ScalarProperty Name="row" ColumnName="row" />
+          <ScalarProperty Name="IdValorDeclarado" ColumnName="IdValorDeclarado" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="DescEmpresa" ColumnName="DescEmpresa" />
+          <ScalarProperty Name="FechaVigenciaInicio" ColumnName="FechaVigenciaInicio" />
+          <ScalarProperty Name="FechaVigenciaTermino" ColumnName="FechaVigenciaTermino" />
+          <ScalarProperty Name="IdMoneda" ColumnName="IdMoneda" />
+          <ScalarProperty Name="DescMoneda" ColumnName="DescMoneda" />
+          <ScalarProperty Name="TipoCambio" ColumnName="TipoCambio" />
+          <ScalarProperty Name="DescEstado" ColumnName="DescEstado" />
+          <ScalarProperty Name="NombreCortoEmpresa" ColumnName="NombreCortoEmpresa" />
+          <ScalarProperty Name="totalFiltrados" ColumnName="totalFiltrados" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_CentroCosto" FunctionName="SegurosDBModel.Store.SP_S_CentroCosto">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_CentroCosto_Result">
+          <ScalarProperty Name="IdCentroCosto" ColumnName="IdCentroCosto" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="IdUUNN" ColumnName="IdUUNN" />
+          <ScalarProperty Name="Codigo" ColumnName="Codigo" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="IdEstado" ColumnName="IdEstado" />
+          <ScalarProperty Name="osLastLogin" ColumnName="osLastLogin" />
+          <ScalarProperty Name="osLastDate" ColumnName="osLastDate" />
+          <ScalarProperty Name="osLastApp" ColumnName="osLastApp" />
+          <ScalarProperty Name="osFirstLogin" ColumnName="osFirstLogin" />
+          <ScalarProperty Name="osFirstDate" ColumnName="osFirstDate" />
+          <ScalarProperty Name="osFirstApp" ColumnName="osFirstApp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_validar_importe_ajustado_y_cantidad_ajustada" FunctionName="SegurosDBModel.Store.SP_S_validar_importe_ajustado_y_cantidad_ajustada">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_validar_importe_ajustado_y_cantidad_ajustada_Result">
+          <ScalarProperty Name="error" ColumnName="error" />
+          <ScalarProperty Name="mensaje" ColumnName="mensaje" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_ReporteVehiculo" FunctionName="SegurosDBModel.Store.SP_S_ReporteVehiculo">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_ReporteVehiculo_Result">
+          <ScalarProperty Name="NombreCorto" ColumnName="NombreCorto" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Importe" ColumnName="Importe" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_ReporteVehiculoDetalle" FunctionName="SegurosDBModel.Store.SP_S_ReporteVehiculoDetalle">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_ReporteVehiculoDetalle_Result">
+          <ScalarProperty Name="NombreCorto" ColumnName="NombreCorto" />
+          <ScalarProperty Name="Constante" ColumnName="Constante" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Importe" ColumnName="Importe" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SP_S_ReportePatrimonial" FunctionName="SegurosDBModel.Store.SP_S_ReportePatrimonial">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="SegurosDBModel.SP_S_ReportePatrimonial_Result">
+          <ScalarProperty Name="IdDivisionPoliza" ColumnName="IdDivisionPoliza" />
+          <ScalarProperty Name="Descripcion" ColumnName="Descripcion" />
+          <ScalarProperty Name="IdEmpresa" ColumnName="IdEmpresa" />
+          <ScalarProperty Name="NombreCorto" ColumnName="NombreCorto" />
+          <ScalarProperty Name="IdTipoValorDeclarado" ColumnName="IdTipoValorDeclarado" />
+          <ScalarProperty Name="Nombre" ColumnName="Nombre" />
+          <ScalarProperty Name="Cantidad" ColumnName="Cantidad" />
+          <ScalarProperty Name="Importe" ColumnName="Importe" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,68 @@
+﻿@model SiniestrosSeguros.DTO.ModelViews.TipoPoliza.ModalTipoPolizaModelView
+@using System.Configuration
+@{
+
+    ViewBag.Title = "Registro Tipo de Poliza";
+}
+
+@*@Scripts.Render("~/Scripts/TipoPoliza/CRUD.js")*@
+<script src="~/Scripts/TipoPoliza/CRUD.js?version=@ConfigurationManager.AppSettings["version"].ToString()"></script>
+<style TYPE="text/css" MEDIA=screen>
+    .sinborde {
+        border: 0;
+    }
+</style>
+
+@using (Html.BeginForm("Create", "TipoPoliza", FormMethod.Post, new { id = "frmCRUDTipoPoliza" }))
+{
+    @Html.AntiForgeryToken()
+    <div class="alert alert-warning" role="alert" id="divError">
+
+    </div>
+
+    <section>
+        <div class="col-sm-12" id="lstFiltrosEvaluar">
+            <div class="form-group">
+                <div class="form-horizontal">
+                    <div class="row">
+                        @Html.HiddenFor(m => m.IdTipoPoliza)
+                        <div class="control-label col-sm-6" style="margin-top: 10px;">
+                            <label>Ramo de Póliza: </label>
+                            <label id="labelRed">
+                                <strong>@Html.DisplayFor(m => m.paramsModalView.DescripcionRamoPoliza)</strong>
+                            </label>
+                        </div>
+                        <div class="form-inline col-sm-6">
+                            <label style="margin-right:10px;">Abreviatura</label>
+                            @Html.TextBoxFor(m => m.Abreviatura, new {  @class = "form-control formatoTexto", maxlength = 32 })
+                        </div>
+                    </div>
+
+                    <div class="row" style="margin-top:20px;">
+                        <div class="col-sm-6">
+                            <label>Descripción</label>
+                            @Html.TextAreaFor(m => m.Descripcion, new { @onkeypress = "return soloNumerosLetrasGuionesComas(event)", @class = "form-control", maxlength = 128 })
+                        </div>
+                        <div class="col-sm-6">
+                            @*<div class="input-group" style="margin-top:20px;">
+                                    @Html.CheckBoxFor(m => m.IdEstado)
+                                    <label class="labelNew">Activo</label>
+                                </div>*@
+                            <div class="input-group" style="margin-top:40px;">
+                                @*@Html.CheckBoxFor(m => m.AplicaProveedor, new { @class = "form-control" })*@
+                                @Html.CheckBoxFor(m => m.AplicaProveedor)
+                                <label class="labelNew">Aplica proveedor</label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group pull-right">
+                        <button type="submit" class="btn btn-primary ico-grabar">Guardar</button>
+                        <button type="button" class="btn btn-secondary ico-cancelar" data-dismiss="modal">Cancelar</button>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+}

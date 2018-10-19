@@ -1,0 +1,345 @@
+﻿@using System.Configuration
+
+<!DOCTYPE html>
+<html >
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Distriluz</title>
+    <script src="~/Scripts/_nameSpace.js?version=@ConfigurationManager.AppSettings["version"]"></script>
+
+    @Styles.Render("~/Content/bootstrap.css")
+    @Styles.Render("~/Content/Site.css")
+    @Styles.Render("~/Content/DataTables/css/jquery.dataTables.css")
+    @Styles.Render("~/Content/themes/base/jquery-ui.css")
+
+    @*@Styles.Render("~/Content/bootstrap-datetimepicker.min.css")*@
+
+    @*@Styles.Render("~/Content/jquery-confirm.min.css")*@
+
+    <!-- Start Global Mandatory Style
+    =====================================================================-->
+    <!-- jquery-ui css -->
+    @*@Styles.Render("~/Content/PlantNueva/plugins/jquery-ui-1.12.1/jquery-ui.min.css")*@
+    <!-- Bootstrap -->
+    @*@Styles.Render("~/Content/PlantNueva/bootstrap/css/bootstrap.min.css")*@
+    <!-- Bootstrap rtl -->
+    <!--<link href="assets/bootstrap-rtl/bootstrap-rtl.min.css" rel="stylesheet" type="text/css"/>-->
+    <!-- Lobipanel css -->
+    @Styles.Render("~/Content/PlantNueva/plugins/lobipanel/lobipanel.min.css")
+    <!-- Pace css -->
+    @Styles.Render("~/Content/PlantNueva/plugins/pace/flash.css")
+    <!--  Font Awesome -->
+    @Styles.Render("~/Content/PlantNueva/font-awesome/css/font-awesome.min.css")
+    <!-- Pe-icon -->
+    @Styles.Render("~/Content/PlantNueva/pe-icon-7-stroke/css/pe-icon-7-stroke.css")
+    <!-- Themify icons -->
+    @Styles.Render("~/Content/PlantNueva/themify-icons/themify-icons.css")
+
+    <!-- End Global Mandatory Style
+    =====================================================================-->
+    <!-- Start page Label Plugins
+    =====================================================================-->
+    <!-- Toastr css -->
+    @Styles.Render("~/Content/PlantNueva/plugins/toastr/toastr.css")
+    <!-- Emojionearea -->
+    @Styles.Render("~/Content/PlantNueva/plugins/emojionearea/emojionearea.min.css")
+    <!-- Monthly css -->
+    @Styles.Render("~/Content/PlantNueva/plugins/monthly/monthly.css")
+
+    <!-- End page Label Plugins
+    =====================================================================-->
+    <!-- Start Theme Layout Style
+    =====================================================================-->
+    <!-- Theme style -->
+    @Styles.Render("~/Content/PlantNueva/dist/css/styleBD.css")
+    @Styles.Render("~/Content/toastr/toastr.min3f0d.css")
+    <!-- Theme style rtl -->
+    <!-- End Theme Layout Style
+    =====================================================================-->
+    <!-- Start Core Plugins
+           =====================================================================-->
+    @Scripts.Render("~/Scripts/umd/popper.js")
+
+    @Scripts.Render("~/Scripts/jquery-3.3.1.js")
+
+    @Scripts.Render("~/Scripts/jquery-ui-1.12.1.js")
+
+    @Scripts.Render("~/Scripts/jquery.validate.js")
+
+    @Scripts.Render("~/Scripts/bootstrap.js")
+
+    @Scripts.Render("~/Scripts/respond.js")
+
+    @Scripts.Render("~/Scripts/DataTables/jquery.dataTables.js")
+
+    @Scripts.Render("~/Scripts/modernizr-2.8.3.js")
+
+    @Scripts.Render("~/Scripts/moment-with-locales.js")
+
+    @Scripts.Render("~/Scripts/moment.min.js")
+
+    @*@Scripts.Render("~/Scripts/bootstrap-datetimepicker.min.js")*@
+
+    @Scripts.Render("~/Scripts/jquery-confirm.min.js")
+
+    <!-- lobipanel -->
+    @Scripts.Render("~/Content/PlantNueva/plugins/lobipanel/lobipanel.min.js")
+    <!-- Pace js -->
+    @Scripts.Render("~/Content/PlantNueva/plugins/pace/pace.min.js")
+    <!-- SlimScroll -->
+    @Scripts.Render("~/Content/PlantNueva/plugins/slimScroll/jquery.slimscroll.min.js")
+    <!-- FastClick -->
+    @Scripts.Render("~/Content/PlantNueva/plugins/fastclick/fastclick.min.js")
+
+    @Scripts.Render("~/bundles/JqueryFormatoMonto")
+    @*@Scripts.Render("~/Scripts/Shared/Layout.js")*@
+    <!-- End Core Plugins
+    =====================================================================-->
+    @Scripts.Render("~/Content/toastr/toastr.min.js")
+</head>
+
+<body class="hold-transition sidebar-mini">
+    <!-- Site wrapper -->
+    <div class="wrapper">
+        <header class="main-header">
+            <a href="@Url.Action("Index","Home")" class="logo">
+                <!-- Logo -->
+                <span class="logo-mini">
+                    <!--<b>A</b>BD-->
+                    <img src="~/Content/Images/mini-distri.png" alt="">
+                </span>
+                <span class="logo-lg">
+                    <!--<b>Admin</b>BD-->
+                    <img src="~/Content/Images/distri-hor.gif" alt="">
+                </span>
+            </a>
+            <!-- Header Navbar -->
+            <nav class="navbar navbar-static-top">
+                <a href="#" class="sidebar-toggle" data-toggle="offcanvas" role="button">
+                    <!-- Sidebar toggle button-->
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="pe-7s-keypad"></span>
+                </a>
+
+            </nav>
+        </header>
+
+        <!-- =============================================== -->
+        <!-- Left side column. contains the sidebar -->
+        <aside id="divSubMenuIzquierda" class="main-sidebar">
+            <!-- sidebar -->
+            <div class="sidebar">
+                <!-- Sidebar user panel -->
+                <!-- sidebar menu -->
+                <ul id="menuPrueba" class="sidebar-menu">
+                    <li class="header">OPCIONES</li>
+                    <li class="treeview active">
+                        <a href="#" data-href-array="TipoPoliza,TipoValorDeclarado,Constante/ConsultarConstantes">
+                            <i class="ti-harddrives"></i><span>MANTENIMIENTO</span>
+                            <span class="pull-right-container">
+                                <i class="fa fa-angle-left pull-right"></i>
+                            </span>
+                        </a>
+                        <ul class="treeview-menu" >
+                            <li><a href="../TipoPoliza" data-href="TipoPoliza">TIPO DE PÓLIZA</a></li>
+                            <li><a href="../TipoValorDeclarado" data-href="TipoValorDeclarado">TIPO DE VALOR DECLARADO</a></li>
+                            <li><a href="../Constante/ConsultarConstantes" data-href="ConsultarConstantes">CONSTANTES</a></li>
+                        </ul>
+                    </li>
+                    <li class="treeview">
+                        <a href="../valordeclarado/index" data-href="valordeclarado/index">
+                            <i class="ti-pencil-alt"></i> <span>GESTOR DE VALOR DECLARADO</span>
+                        </a>
+                    </li>
+                    <li class="treeview">
+                        <a href="../Reportes/ReportViewer" data-href="Reportes/ReportViewer">
+                            <i class="ti-layout"></i> <span>REPORTE DE PÓLIZAS</span>
+                            @*<span class="pull-right-container">
+                                    <i class="fa fa-angle-left pull-right"></i>
+                                </span>*@
+                        </a>
+                        @*<ul class="treeview-menu">
+                                <li><a href="../Reportes/ReportViewer">Reporte de Polizas</a></li>
+                            </ul>*@
+                    </li>
+                </ul>
+            </div> <!-- /.sidebar -->
+        </aside>
+
+
+
+        <!-- =============================================== -->
+        <!-- Content Wrapper. Contains page content -->
+        <div class="content-wrapper">
+            <!-- Content Header (Page header) -->
+            @*<section class="content-header">
+                    <h1>
+                        <small></small>
+                    </h1>
+                   <ol class="breadcrumb">
+                        <li><a href="#"><i class="fa fa-globe"></i> Inicio</a></li>
+                        <li class="active">Distriluz</li>
+                    </ol>
+                </section>*@
+
+
+            <!-- Main content -->
+            <section class="content" id="containerPage">
+                <link href="~/Content/iconosButtons.css?version=@ConfigurationManager.AppSettings["version"].ToString()" rel="stylesheet" />
+                @RenderBody()
+            </section>
+            <!-- /.content -->
+        </div>
+        <footer class="main-footer">
+            <div class="pull-right hidden-xs"> <b>Version</b> 1.0</div>
+            <strong>Distriluz Copyright &copy; 2017-2018</strong> - Derechos reservados.
+        </footer>
+    </div>
+
+    <!-- Modal -->
+    <div data-backdrop="static" data-keyboard="false" class="modal fade" id="divModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" id="modalHeader">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    ...
+                </div>
+                <div class="modal-footer" id="modalFooter">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal pequeño-->
+    <div data-backdrop="static" data-keyboard="false" class="modal fade" id="divFrontModalSmall" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" id="modalHeader">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    ...
+                </div>
+                <div class="modal-footer" id="modalFooter">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div data-backdrop="static" data-keyboard="false" class="modal fade" id="divFrontModal" tabindex="-2" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header" id="modalHeader">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    ...
+                </div>
+                <div class="modal-footer" id="modalFooter">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Start Theme label Script
+    =====================================================================-->
+    <!-- AdminBD frame -->
+    @Scripts.Render("~/Content/PlantNueva/dist/js/frame.js")
+
+    <!-- Dashboard js -->
+    @Scripts.Render("~/Content/PlantNueva/dist/js/dashboard.js")
+
+
+    <!-- End Theme label Script
+    =====================================================================-->
+    @*@Scripts.Render("~/bundles/jquery")
+        @Scripts.Render("~/bundles/bootstrap")*@
+    @RenderSection("scripts", required: false)
+
+
+</body>
+</html>
+
+<script>
+   
+
+    function globalScript() {
+        var count = 0;
+        var refreshIntervalId = setInterval(function () {
+            var progress = document.querySelector('.pace-progress')
+
+            if (typeof (progress) != 'undefined' && progress != null) {
+                var attr = progress.getAttribute('style');
+                if (attr.indexOf('100') > 0 && count == 0 && progress != null) {
+                    if (document.querySelector('[class="pace pace-active"]') != null) {
+                        document.querySelector('[class="pace pace-active"]').remove();
+                    }
+                    count++;
+
+                } else if (count > 0 && progress != null) {
+                    if (document.querySelector('[class="pace pace-active"]') != null) {
+                        document.querySelector('[class="pace pace-active"]').remove();
+                    }
+                }
+            }
+        }, 1000);
+
+
+        var currentHref = function () {
+
+            var elements = document.querySelectorAll('#menuPrueba li');
+            for (var i = 0; i < elements.length; i++) {
+                elements[i].removeAttribute('class');
+                elements[i].setAttribute('class', 'treeview');
+                if (elements[i].querySelector('a') != null) {
+                    var current = elements[i].querySelector('a').getAttribute('data-href');
+                    var arrays = elements[i].querySelector('a').getAttribute('data-href-array');
+
+                    var array = arrays == null ? '' : arrays.split(',');
+
+                    if (document.location.href.indexOf(current) > 0 && array.length == 0) {
+                        if (array.length == 0) {
+                            elements[i].setAttribute('class', 'treeview active');
+                            break;
+                        } else {
+
+                        }
+                    } else {
+
+                        for (var a in array) {
+                            if (document.location.href.indexOf(array[a]) > 0) {
+                                elements[i].setAttribute('class', 'treeview active');
+                                break;
+                            }
+                        }
+                    }
+
+                }
+            }
+
+        }
+        currentHref();
+    }
+
+  
+
+    globalScript();
+
+</script>

@@ -1,0 +1,236 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.2.8.1\build\Microsoft.TypeScript.MSBuild.props" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.2.8.1\build\Microsoft.TypeScript.MSBuild.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{D70A2FEF-B6FA-4C5D-8C05-8279626C5083}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SiniestrosSeguros.DTO</RootNamespace>
+    <AssemblyName>SiniestrosSeguros.DTO</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DISTRILUZ_SINSEG_DB.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="ModelCustoms\Area.cs" />
+    <Compile Include="ModelCustoms\Constante.cs" />
+    <Compile Include="ModelCustoms\Disgrega.cs" />
+    <Compile Include="ModelCustoms\Empresa.cs" />
+    <Compile Include="ModelCustoms\Estado.cs" />
+    <Compile Include="ModelCustoms\Mensaje.cs" />
+    <Compile Include="ModelCustoms\Moneda.cs" />
+    <Compile Include="ModelCustoms\Reportes.cs" />
+    <Compile Include="ModelCustoms\RespuestaWS.cs" />
+    <Compile Include="ModelCustoms\TipoPoliza.cs" />
+    <Compile Include="ModelCustoms\TipoValorDeclarado.cs" />
+    <Compile Include="ModelCustoms\UnidadMedida.cs" />
+    <Compile Include="ModelCustoms\ValorDeclaradoAutorizacion.cs" />
+    <Compile Include="ModelViews\AjusteValorDeclarado.cs" />
+    <Compile Include="ModelViews\CentroCosto.cs" />
+    <Compile Include="ModelViews\Constantes.cs" />
+    <Compile Include="ModelViews\Marca.cs" />
+    <Compile Include="ModelViews\Modelo.cs" />
+    <Compile Include="ModelViews\Persona.cs" />
+    <Compile Include="ModelViews\Reportes.cs" />
+    <Compile Include="ModelViews\TipoPoliza.cs" />
+    <Compile Include="ModelViews\TiposValoresDeclarados.cs" />
+    <Compile Include="ModelViews\Trabajador.cs" />
+    <Compile Include="ModelViews\UnidadNegocio.cs" />
+    <Compile Include="ModelViews\ValorDeclarado.cs" />
+    <Compile Include="ModelViews\ValorDeclaradoDetalle.cs" />
+    <Compile Include="ModelViews\ValorDeclaradoDetalleComplemento.cs" />
+    <Compile Include="ModelViews\Vehiculo.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SP_S_ArchivoValorDeclarado_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_Area_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_BUSCAR_PERSONA_POR_ESTADO_Y_DNI_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_CentroCosto_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_ConstantePorEstado_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_Constante_Hijo_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_Constante_PorCodigoAgrupador_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_Constante_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_DivisionPoliza_PorTipoPoliza_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_Empresa_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_Estado_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_Marca_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_Modelo_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_Moneda_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_PendienteAutorizacion_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_Persona_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_RamoPoliza_PorCodigoAgrupador_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_ReportePatrimonial_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_ReportePersonal_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_ReporteVehiculoDetalle_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_ReporteVehiculo_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_TipoValorDeclarado_PorIdEstado_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_TipoValorDeclarado_PorIdTipoValorDeclarado_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_TipoValorDeclarado_PorValorDeclarado_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_TipoValorDeclarado_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_trabajador_POR_ID_PERSONA_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_trabajador_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_UnidadNegocio_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_Unidad_Medida_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_validar_importe_ajustado_y_cantidad_ajustada_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_ValorDeclaradoDetalleComplementoTrabajador_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_ValorDeclaradoDetalleComplemento_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_ValorDeclaradoDetalleDisgregado_PorIdValorDeclaradoDetalle_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_ValorDeclaradoDetalleDisgregado_PorIdValorDeclarado_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_ValorDeclaradoDetalle_PorIdValorDeclarado_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_ValorDeclaradoDetalle_PorTipoValorDeclarado_ValorDeclarado_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_ValorDeclaradoDetalle_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_ValorDeclaradoPorId_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_ValorDeclarado_page_server_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_ValorDeclarado_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SP_S_Vehiculo_Result.cs">
+      <DependentUpon>DISTRILUZ_SINSEG_DB.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DISTRILUZ_SINSEG_DB.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>DISTRILUZ_SINSEG_DB.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.2.8.1\build\Microsoft.TypeScript.MSBuild.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.2.8.1\build\Microsoft.TypeScript.MSBuild.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.TypeScript.MSBuild.2.8.1\build\Microsoft.TypeScript.MSBuild.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.TypeScript.MSBuild.2.8.1\build\Microsoft.TypeScript.MSBuild.targets'))" />
+  </Target>
+  <Import Project="..\packages\Microsoft.TypeScript.MSBuild.2.8.1\build\Microsoft.TypeScript.MSBuild.targets" Condition="Exists('..\packages\Microsoft.TypeScript.MSBuild.2.8.1\build\Microsoft.TypeScript.MSBuild.targets')" />
+</Project>
